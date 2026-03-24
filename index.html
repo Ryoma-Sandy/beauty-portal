@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美容医療 学会・勉強会ポータル | 全国の学術集会・セミナー情報</title>
+    <meta name="description" content="美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅するポータルサイト。JSAPS, JSAS, ISAPS等の国内外学会を完全カバー。">
+    <meta name="keywords" content="美容医療,学会,勉強会,セミナー,美容外科,美容皮膚科,JSAPS,JSAS,学術集会">
+    <meta property="og:title" content="美容医療 学会・勉強会ポータル">
+    <meta property="og:description" content="美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "美容医療 学会・勉強会ポータル",
+        "description": "美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅するポータルサイト。",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- ===== ユーザーナビバー ===== -->
+    <nav class="user-nav" id="user-nav">
+        <div class="user-nav-inner">
+            <span class="user-nav-logo"><i class="fas fa-star-of-life"></i> 美容医療ポータル</span>
+            <div class="user-nav-actions" id="user-nav-actions">
+                <!-- ログイン前 -->
+                <div id="nav-guest">
+                    <button class="nav-btn" id="nav-login-btn"><i class="fas fa-sign-in-alt"></i> ログイン</button>
+                    <button class="nav-btn nav-btn-accent" id="nav-register-btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+                </div>
+                <!-- ログイン後 (非表示) -->
+                <div id="nav-user" style="display:none;">
+                    <span class="nav-user-name" id="nav-user-name"></span>
+                    <button class="nav-btn" id="nav-logout-btn"><i class="fas fa-sign-out-alt"></i> ログアウト</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-star-of-life hero-icon"></i> 美容医療 学会・勉強会ポータル</h1>
+            <p>美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅。</p>
+            <button id="submit-event-btn" class="btn-submit-event">
+                <i class="fas fa-paper-plane"></i> 掲載を申請する
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filter-section">
+            <div class="filter-group">
+                <label for="search-filter"><i class="fas fa-search"></i> キーワード検索</label>
+                <input type="text" id="search-filter" placeholder="学会名、テーマ、主催者など..." />
+            </div>
+            <div class="filter-group">
+                <label for="category-filter"><i class="fas fa-tag"></i> カテゴリ</label>
+                <select id="category-filter">
+                    <option value="all">すべて</option>
+                    <option value="美容皮膚科">美容皮膚科</option>
+                    <option value="美容外科">美容外科</option>
+                    <option value="総合">総合・その他</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="region-filter"><i class="fas fa-map-marker-alt"></i> 開催地域</label>
+                <select id="region-filter">
+                    <option value="all">全国・すべて</option>
+                    <option value="オンライン">オンライン</option>
+                    <option value="北海道・東北">北海道・東北</option>
+                    <option value="関東">関東</option>
+                    <option value="中部">中部</option>
+                    <option value="関西">関西</option>
+                    <option value="中国・四国">中国・四国</option>
+                    <option value="九州・沖縄">九州・沖縄</option>
+                    <option value="海外">海外</option>
+                </select>
+            </div>
+            <div class="filter-count">
+                <span id="event-count"></span>
+            </div>
+            <div class="filter-group filter-fav">
+                <button class="fav-filter-btn" id="fav-filter-btn" title="ログインするとお気に入りが使えます">
+                    <i class="far fa-star"></i> お気に入り
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== ビュー切り替え ===== -->
+        <div class="view-toggle">
+            <button class="view-toggle-btn active" id="view-list-btn" data-view="list">
+                <i class="fas fa-list"></i> 一覧
+            </button>
+            <button class="view-toggle-btn" id="view-calendar-btn" data-view="calendar">
+                <i class="far fa-calendar-alt"></i> カレンダー
+            </button>
+        </div>
+
+        <!-- ===== カレンダービュー ===== -->
+        <section class="calendar-section" id="calendar-section">
+            <div class="calendar-header">
+                <button class="cal-nav-btn" id="cal-prev"><i class="fas fa-chevron-left"></i></button>
+                <h2 class="cal-month-title" id="cal-month-title"></h2>
+                <button class="cal-nav-btn" id="cal-next"><i class="fas fa-chevron-right"></i></button>
+                <button class="cal-today-btn" id="cal-today">今月</button>
+            </div>
+            <div class="calendar-grid">
+                <div class="cal-weekday">日</div>
+                <div class="cal-weekday">月</div>
+                <div class="cal-weekday">火</div>
+                <div class="cal-weekday">水</div>
+                <div class="cal-weekday">木</div>
+                <div class="cal-weekday">金</div>
+                <div class="cal-weekday">土</div>
+                <div id="cal-days" class="cal-days-container"></div>
+            </div>
+            <div class="cal-legend">
+                <span class="cal-legend-item"><span class="cal-dot dot-derma"></span> 美容皮膚科</span>
+                <span class="cal-legend-item"><span class="cal-dot dot-surgery"></span> 美容外科</span>
+                <span class="cal-legend-item"><span class="cal-dot dot-general"></span> 総合</span>
+            </div>
+            <div class="cal-selected-info" id="cal-selected-info" style="display:none;">
+                <button class="cal-clear-btn" id="cal-clear"><i class="fas fa-times"></i> 日付フィルタ解除</button>
+                <span id="cal-selected-text"></span>
+            </div>
+        </section>
+
+        <section class="events-grid" id="events-grid">
+            <!-- イベントカードがJavaScriptでここに挿入されます -->
+        </section>
+    </main>
+
+    <!-- ===== 掲載申請モーダル ===== -->
+    <div class="modal-overlay" id="submit-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-paper-plane"></i> 掲載を申請する</h2>
+                <button class="modal-close-btn" id="modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-notice">
+                <i class="fas fa-info-circle"></i>
+                掲載申請は管理者の承認後にポータルへ掲載されます。
+            </div>
+            <form id="submit-form" class="submit-form">
+                <!-- 申請者情報 -->
+                <div class="form-section-title"><i class="fas fa-user"></i> 申請者情報</div>
+                <div class="form-row two-col">
+                    <div class="form-group">
+                        <label for="input-applicant-name">お名前 <span class="required">*</span></label>
+                        <input type="text" id="input-applicant-name" name="applicantName" placeholder="山田 太郎" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="input-applicant-email">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="input-applicant-email" name="applicantEmail" placeholder="info@example.com" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="input-applicant-company">所属・会社名</label>
+                        <input type="text" id="input-applicant-company" name="applicantCompany" placeholder="例：○○クリニック / ○○株式会社" />
+                    </div>
+                </div>
+
+                <!-- イベント情報 -->
+                <div class="form-section-title"><i class="far fa-calendar-alt"></i> イベント情報</div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="input-title">イベント名 <span class="required">*</span></label>
+                        <input type="text" id="input-title" name="title" placeholder="例：第10回 ○○学会 学術集会" required />
+                    </div>
+                </div>
+                <div class="form-row two-col">
+                    <div class="form-group">
+                        <label for="input-date">開催日程 <span class="required">*</span></label>
+                        <input type="text" id="input-date" name="date" placeholder="例：2026年10月15日 - 16日" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="input-sort-date">並び替え用日付</label>
+                        <input type="date" id="input-sort-date" name="sortDate" />
+                    </div>
+                </div>
+                <div class="form-row two-col">
+                    <div class="form-group">
+                        <label for="input-category">カテゴリ <span class="required">*</span></label>
+                        <select id="input-category" name="category" required>
+                            <option value="美容皮膚科">美容皮膚科</option>
+                            <option value="美容外科">美容外科</option>
+                            <option value="総合">総合・その他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-region">開催地域 <span class="required">*</span></label>
+                        <select id="input-region" name="region" required>
+                            <option value="オンライン">オンライン</option>
+                            <option value="北海道・東北">北海道・東北</option>
+                            <option value="関東">関東</option>
+                            <option value="中部">中部</option>
+                            <option value="関西">関西</option>
+                            <option value="中国・四国">中国・四国</option>
+                            <option value="九州・沖縄">九州・沖縄</option>
+                            <option value="海外">海外</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row two-col">
+                    <div class="form-group">
+                        <label for="input-location">会場名 <span class="required">*</span></label>
+                        <input type="text" id="input-location" name="location" placeholder="例：東京国際フォーラム" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="input-organizer">主催者</label>
+                        <input type="text" id="input-organizer" name="organizer" placeholder="例：日本○○学会" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="input-description">説明 <span class="required">*</span></label>
+                        <textarea id="input-description" name="description" rows="3" placeholder="イベントの概要を入力してください..." required></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="input-url">公式サイトURL</label>
+                        <input type="url" id="input-url" name="url" placeholder="https://example.com" />
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-paper-plane"></i> 掲載を申請する</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== ログインモーダル ===== -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2><i class="fas fa-sign-in-alt"></i> ログイン</h2>
+                <button class="modal-close-btn" id="login-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">メールアドレス</label>
+                    <input type="email" id="login-email" placeholder="info@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="login-password">パスワード</label>
+                    <input type="password" id="login-password" placeholder="パスワード" required />
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-sign-in-alt"></i> ログイン</button>
+                </div>
+                <p class="auth-switch">アカウントをお持ちでない方は <a href="#" id="switch-to-register">新規登録</a></p>
+                <p class="auth-error" id="login-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== 新規登録モーダル ===== -->
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> 新規登録</h2>
+                <button class="modal-close-btn" id="register-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">お名前</label>
+                    <input type="text" id="register-name" placeholder="山田 太郎" required />
+                </div>
+                <div class="form-group">
+                    <label for="register-email">メールアドレス</label>
+                    <input type="email" id="register-email" placeholder="info@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="register-password">パスワード（6文字以上）</label>
+                    <input type="password" id="register-password" minlength="6" placeholder="パスワード" required />
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-user-plus"></i> 登録する</button>
+                </div>
+                <p class="auth-switch">すでにアカウントをお持ちの方は <a href="#" id="switch-to-login">ログイン</a></p>
+                <p class="auth-error" id="register-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 美容医療 学会・勉強会ポータル All Rights Reserved.</p>
+        <p class="footer-sub">掲載情報はWebリサーチおよび承認済みユーザー投稿に基づくものです。最新情報は各学会の公式サイトをご確認ください。</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

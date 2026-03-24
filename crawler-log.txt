@@ -1,0 +1,65 @@
+[2026-03-18T16:45:18.454Z] === クロール開始 ===
+[2026-03-18T16:45:18.457Z] クロール中: JSAPS（日本美容外科学会 JSAPS） (https://www.jsaps.com/general/academicmeeting/)
+[2026-03-18T16:45:19.148Z]   HTTP 404: https://www.jsaps.com/general/academicmeeting/
+[2026-03-18T16:45:19.150Z]   スキップ: ページ取得失敗
+[2026-03-18T16:45:19.150Z] クロール中: JSAS（日本美容外科学会 JSAS） (https://www.jsas.or.jp/)
+[2026-03-18T16:45:20.424Z]   0 件のイベント候補を検出
+[2026-03-18T16:45:20.426Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-03-18T17:03:35.189Z] === クロール開始 ===
+[2026-03-18T17:03:35.193Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-03-18T17:03:35.983Z]   0 件のイベント候補を検出
+[2026-03-18T17:03:35.984Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-03-18T17:03:37.370Z]   0 件のイベント候補を検出
+[2026-03-18T17:03:37.371Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-03-18T17:03:38.057Z]   0 件のイベント候補を検出
+[2026-03-18T17:03:38.058Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-03-18T17:03:38.164Z]   フェッチエラー (https://www.jslms.or.jp/): request to https://www.jslms.or.jp/ failed, reason: getaddrinfo ENOTFOUND www.jslms.or.jp
+[2026-03-18T17:03:38.165Z]   スキップ: ページ取得失敗
+[2026-03-18T17:03:38.166Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-03-18T17:03:39.254Z]   0 件のイベント候補を検出
+[2026-03-18T17:03:39.255Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-03-18T17:03:45.973Z]   8 件のイベント候補を検出
+[2026-03-18T17:03:45.974Z]   重複スキップ: 第21回 日本美容医療学会 研究会
+[2026-03-18T17:03:45.975Z]   重複スキップ: 第22回 日本美容医療学会 研究会
+[2026-03-18T17:03:45.976Z]   ✅ 新規追加: 第3回 日本美容医療学会 学術総会
+[2026-03-18T17:03:45.977Z]   重複スキップ: 第21回 日本美容医療学会 研究会
+[2026-03-18T17:03:45.978Z]   重複スキップ: 第22回 日本美容医療学会 研究会
+[2026-03-18T17:03:45.980Z]   重複スキップ: 第3回 日本美容医療学会 学術総会
+[2026-03-18T17:03:45.981Z]   ✅ 新規追加: 第20回 日本美容医療学会 研究会
+[2026-03-18T17:03:45.982Z]   ✅ 新規追加: 第2回 日本美容医療学会 学術総会
+[2026-03-18T17:03:45.983Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-03-18T17:03:46.314Z]   フェッチエラー (https://www.kenkyuukai.jp/biyo/): request to https://www.kenkyuukai.jp/biyo/ failed, reason: Hostname/IP does not match certificate's altnames: Host: www.kenkyuukai.jp. is not in the cert's altnames: DNS:kenkyuukai.m3.com, DNS:www.kenkyuukai.m3.com
+[2026-03-18T17:03:46.315Z]   スキップ: ページ取得失敗
+[2026-03-18T17:03:46.315Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-03-18T17:03:48.871Z]   3 件のイベント候補を検出
+[2026-03-18T17:03:48.872Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-03-18T17:03:55.780Z]   2 件のイベント候補を検出
+[2026-03-18T17:03:55.782Z] クロール中: UIME (https://www.uime.org/)
+[2026-03-18T17:03:57.929Z]   フェッチエラー (https://www.uime.org/): request to https://www.uime.org/ failed, reason: getaddrinfo EAI_AGAIN www.uime.org
+[2026-03-18T17:03:57.930Z]   スキップ: ページ取得失敗
+[2026-03-18T17:03:57.931Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-03-18T17:03:59.197Z]   0 件のイベント候補を検出
+[2026-03-18T17:03:59.198Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-03-18T17:03:59.585Z]   0 件のイベント候補を検出
+[2026-03-18T17:03:59.586Z] クロール中: AAD (https://www.aad.org/)
+[2026-03-18T17:04:00.392Z]   0 件のイベント候補を検出
+[2026-03-18T17:04:00.393Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-03-18T17:04:01.968Z]   0 件のイベント候補を検出
+[2026-03-18T17:04:01.969Z] クロール中: ESAPS (https://esaps.org/)
+[2026-03-18T17:04:02.211Z]   フェッチエラー (https://esaps.org/): request to https://esaps.org/ failed, reason: getaddrinfo ENOTFOUND esaps.org
+[2026-03-18T17:04:02.212Z]   スキップ: ページ取得失敗
+[2026-03-18T17:04:02.212Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-03-18T17:04:03.628Z]   0 件のイベント候補を検出
+[2026-03-18T17:04:03.629Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-03-18T17:04:06.095Z]   2 件のイベント候補を検出
+[2026-03-18T17:04:06.096Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-03-18T17:04:06.223Z]   フェッチエラー (https://wosaam.net/): request to https://wosaam.net/ failed, reason: getaddrinfo ENOTFOUND wosaam.net
+[2026-03-18T17:04:06.227Z]   スキップ: ページ取得失敗
+[2026-03-18T17:04:06.228Z] クロール中: A4M (https://www.a4m.com/)
+[2026-03-18T17:04:07.777Z]   1 件のイベント候補を検出
+[2026-03-18T17:04:07.795Z] データファイルを更新しました: C:\Users\ryoma\.gemini\antigravity\scratch\美容勉強会\events-data.json
+[2026-03-18T17:04:07.796Z] === クロール完了: 3 件の新規イベントを追加 ===
+[2026-03-18T17:04:07.796Z]   公式イベント合計: 19 件
+[2026-03-18T17:04:07.797Z]   承認待ち: 0 件
+[2026-03-18T17:04:07.798Z]   承認済み: 0 件
+[2026-03-18T17:04:07.798Z] 

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者ダッシュボード - 美容医療ポータル</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- ===== ログイン画面 ===== -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-card">
+            <div class="login-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>管理者ログイン</h1>
+            <p>美容医療ポータル管理画面</p>
+            <form id="login-form">
+                <div class="login-field">
+                    <label for="admin-password"><i class="fas fa-lock"></i> パスワード</label>
+                    <input type="password" id="admin-password" placeholder="管理者パスワードを入力" required autofocus />
+                </div>
+                <button type="submit" class="btn-login"><i class="fas fa-sign-in-alt"></i> ログイン</button>
+                <p class="login-error" id="login-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== ダッシュボード ===== -->
+    <div class="dashboard" id="dashboard" style="display:none;">
+        <header class="admin-header">
+            <div class="header-left">
+                <h1><i class="fas fa-cog"></i> 管理者ダッシュボード</h1>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="btn-link"><i class="fas fa-external-link-alt"></i> ポータルを表示</a>
+                <button class="btn-logout" id="btn-logout"><i class="fas fa-sign-out-alt"></i> ログアウト</button>
+            </div>
+        </header>
+
+        <!-- 統計カード -->
+        <section class="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon official"><i class="fas fa-database"></i></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="stat-official">0</span>
+                    <span class="stat-label">公式イベント</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon pending"><i class="fas fa-clock"></i></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="stat-pending">0</span>
+                    <span class="stat-label">承認待ち</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon approved"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="stat-approved">0</span>
+                    <span class="stat-label">承認済み</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon crawl"><i class="fas fa-spider"></i></div>
+                <div class="stat-info">
+                    <span class="stat-number" id="stat-crawled" style="font-size:0.9rem;">-</span>
+                    <span class="stat-label">最終クロール</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- タブナビ -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="pending-tab">
+                <i class="fas fa-inbox"></i> 承認待ち <span class="tab-badge" id="pending-badge">0</span>
+            </button>
+            <button class="tab-btn" data-tab="approved-tab">
+                <i class="fas fa-check"></i> 承認済み投稿
+            </button>
+            <button class="tab-btn" data-tab="official-tab">
+                <i class="fas fa-database"></i> 公式イベント
+            </button>
+        </nav>
+
+        <!-- 承認待ちタブ -->
+        <section class="tab-content active" id="pending-tab">
+            <div class="section-header">
+                <h2><i class="fas fa-inbox"></i> 承認待ち申請</h2>
+                <p class="section-desc">ユーザーからの掲載申請を確認し、承認または却下してください。</p>
+            </div>
+            <div class="event-list" id="pending-list">
+                <div class="empty-state">
+                    <i class="fas fa-check-double"></i>
+                    <p>承認待ちの申請はありません</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 承認済みタブ -->
+        <section class="tab-content" id="approved-tab">
+            <div class="section-header">
+                <h2><i class="fas fa-check-circle"></i> 承認済み投稿</h2>
+                <p class="section-desc">承認されポータルに掲載中のユーザー投稿です。</p>
+            </div>
+            <div class="event-list" id="approved-list">
+                <div class="empty-state">
+                    <i class="fas fa-folder-open"></i>
+                    <p>承認済みの投稿はありません</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 公式イベントタブ -->
+        <section class="tab-content" id="official-tab">
+            <div class="section-header">
+                <h2><i class="fas fa-database"></i> 公式イベント一覧</h2>
+                <p class="section-desc">クローラーで自動取得された公式イベントです。</p>
+            </div>
+            <div class="event-list" id="official-list"></div>
+        </section>
+
+        <!-- 編集モーダル -->
+        <div class="modal-overlay" id="edit-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-edit"></i> イベント編集</h2>
+                    <button class="modal-close-btn" id="edit-modal-close"><i class="fas fa-times"></i></button>
+                </div>
+                <form id="edit-form" class="edit-form">
+                    <input type="hidden" id="edit-id" />
+                    <input type="hidden" id="edit-source-type" />
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>イベント名</label>
+                            <input type="text" id="edit-title" required />
+                        </div>
+                    </div>
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>開催日程</label>
+                            <input type="text" id="edit-date" required />
+                        </div>
+                        <div class="form-group">
+                            <label>並び替え用日付</label>
+                            <input type="date" id="edit-sortDate" />
+                        </div>
+                    </div>
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>カテゴリ</label>
+                            <select id="edit-category">
+                                <option value="美容皮膚科">美容皮膚科</option>
+                                <option value="美容外科">美容外科</option>
+                                <option value="総合">総合・その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>地域</label>
+                            <select id="edit-region">
+                                <option value="オンライン">オンライン</option>
+                                <option value="北海道・東北">北海道・東北</option>
+                                <option value="関東">関東</option>
+                                <option value="中部">中部</option>
+                                <option value="関西">関西</option>
+                                <option value="中国・四国">中国・四国</option>
+                                <option value="九州・沖縄">九州・沖縄</option>
+                                <option value="海外">海外</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>会場名</label>
+                            <input type="text" id="edit-location" />
+                        </div>
+                        <div class="form-group">
+                            <label>主催者</label>
+                            <input type="text" id="edit-organizer" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>説明</label>
+                            <textarea id="edit-description" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>公式URL</label>
+                            <input type="url" id="edit-url" />
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save"><i class="fas fa-save"></i> 保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- データダウンロード用 -->
+        <section class="download-section">
+            <button class="btn-download" id="btn-download">
+                <i class="fas fa-download"></i> events-data.json をダウンロード
+            </button>
+            <p class="download-hint">変更を保存するには、ダウンロードしたファイルでサーバー上のファイルを置き換えてください。</p>
+        </section>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
