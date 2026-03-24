@@ -31,21 +31,12 @@
     </script>
 </head>
 <body>
-    <!-- ===== ユーザーナビバー ===== -->
+    <!-- ===== ナビバー ===== -->
     <nav class="user-nav" id="user-nav">
         <div class="user-nav-inner">
             <span class="user-nav-logo"><i class="fas fa-star-of-life"></i> 美容医療ポータル</span>
-            <div class="user-nav-actions" id="user-nav-actions">
-                <!-- ログイン前 -->
-                <div id="nav-guest">
-                    <button class="nav-btn" id="nav-login-btn"><i class="fas fa-sign-in-alt"></i> ログイン</button>
-                    <button class="nav-btn nav-btn-accent" id="nav-register-btn"><i class="fas fa-user-plus"></i> 新規登録</button>
-                </div>
-                <!-- ログイン後 (非表示) -->
-                <div id="nav-user" style="display:none;">
-                    <span class="nav-user-name" id="nav-user-name"></span>
-                    <button class="nav-btn" id="nav-logout-btn"><i class="fas fa-sign-out-alt"></i> ログアウト</button>
-                </div>
+            <div class="user-nav-actions">
+                <button class="nav-btn nav-btn-accent" id="nav-submit-btn"><i class="fas fa-paper-plane"></i> 掲載を申請</button>
             </div>
         </div>
     </nav>
@@ -54,13 +45,26 @@
         <div class="hero-content">
             <h1><i class="fas fa-star-of-life hero-icon"></i> 美容医療 学会・勉強会ポータル</h1>
             <p>美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅。</p>
-            <button id="submit-event-btn" class="btn-submit-event">
-                <i class="fas fa-paper-plane"></i> 掲載を申請する
-            </button>
         </div>
     </header>
 
     <main class="container">
+        <!-- ===== クイック日付フィルタ (WalkerPlus風) ===== -->
+        <section class="quick-filters" id="quick-filters">
+            <button class="quick-filter-btn active" data-range="all">
+                <i class="fas fa-globe"></i> すべて
+            </button>
+            <button class="quick-filter-btn" data-range="thisMonth">
+                <i class="far fa-calendar"></i> 今月
+            </button>
+            <button class="quick-filter-btn" data-range="nextMonth">
+                <i class="far fa-calendar-plus"></i> 来月
+            </button>
+            <button class="quick-filter-btn" data-range="thisYear">
+                <i class="fas fa-calendar-alt"></i> 今年
+            </button>
+        </section>
+
         <section class="filter-section">
             <div class="filter-group">
                 <label for="search-filter"><i class="fas fa-search"></i> キーワード検索</label>
@@ -92,17 +96,12 @@
             <div class="filter-count">
                 <span id="event-count"></span>
             </div>
-            <div class="filter-group filter-fav">
-                <button class="fav-filter-btn" id="fav-filter-btn" title="ログインするとお気に入りが使えます">
-                    <i class="far fa-star"></i> お気に入り
-                </button>
-            </div>
         </section>
 
         <!-- ===== 広告プレースホルダ (上部) ===== -->
         <div class="ad-plaza">
             <span class="ad-label">Advertisement</span>
-            <div>Google AdSense 広告枠 (728x90) 等を設置予定</div>
+            <div>広告枠 (728x90)</div>
         </div>
 
         <!-- ===== ビュー切り替え ===== -->
@@ -250,64 +249,11 @@
         </div>
     </div>
 
-    <!-- ===== ログインモーダル ===== -->
-    <div class="modal-overlay" id="login-modal">
-        <div class="modal-content modal-sm">
-            <div class="modal-header">
-                <h2><i class="fas fa-sign-in-alt"></i> ログイン</h2>
-                <button class="modal-close-btn" id="login-modal-close"><i class="fas fa-times"></i></button>
-            </div>
-            <form id="login-form" class="auth-form">
-                <div class="form-group">
-                    <label for="login-email">メールアドレス</label>
-                    <input type="email" id="login-email" placeholder="info@example.com" required />
-                </div>
-                <div class="form-group">
-                    <label for="login-password">パスワード</label>
-                    <input type="password" id="login-password" placeholder="パスワード" required />
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-sign-in-alt"></i> ログイン</button>
-                </div>
-                <p class="auth-switch">アカウントをお持ちでない方は <a href="#" id="switch-to-register">新規登録</a></p>
-                <p class="auth-error" id="login-error"></p>
-            </form>
-        </div>
-    </div>
-
-    <!-- ===== 新規登録モーダル ===== -->
-    <div class="modal-overlay" id="register-modal">
-        <div class="modal-content modal-sm">
-            <div class="modal-header">
-                <h2><i class="fas fa-user-plus"></i> 新規登録</h2>
-                <button class="modal-close-btn" id="register-modal-close"><i class="fas fa-times"></i></button>
-            </div>
-            <form id="register-form" class="auth-form">
-                <div class="form-group">
-                    <label for="register-name">お名前</label>
-                    <input type="text" id="register-name" placeholder="山田 太郎" required />
-                </div>
-                <div class="form-group">
-                    <label for="register-email">メールアドレス</label>
-                    <input type="email" id="register-email" placeholder="info@example.com" required />
-                </div>
-                <div class="form-group">
-                    <label for="register-password">パスワード（6文字以上）</label>
-                    <input type="password" id="register-password" minlength="6" placeholder="パスワード" required />
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-user-plus"></i> 登録する</button>
-                </div>
-                <p class="auth-switch">すでにアカウントをお持ちの方は <a href="#" id="switch-to-login">ログイン</a></p>
-                <p class="auth-error" id="register-error"></p>
-            </form>
-        </div>
-    </div>
     <!-- ===== 広告プレースホルダ (下部) ===== -->
     <div class="container" style="padding-bottom: 0;">
         <div class="ad-plaza" style="margin-bottom: 0;">
             <span class="ad-label">Advertisement</span>
-            <div>Google AdSense 広告枠 (自動サイズ) 等を設置予定</div>
+            <div>広告枠 (自動サイズ)</div>
         </div>
     </div>
 

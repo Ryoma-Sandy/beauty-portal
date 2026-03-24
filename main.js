@@ -1,85 +1,15 @@
 /**
  * 美容医療 学会・勉強会ポータル – フロントエンド
  * 
- * Phase 3: ログイン・お気に入り・カレンダー・フィルター
+ * クイックフィルタ・カレンダー・インフィード広告
  */
 
 const DATA_URL = 'events-data.json';
 const PENDING_STORAGE_KEY = 'beautyPortal_pendingSubmissions';
-const USERS_STORAGE_KEY = 'beautyPortal_users';
-const SESSION_KEY = 'beautyPortal_session';
+const AD_INTERVAL = 4; // N件ごとにインフィード広告を挿入
 
 let allDisplayEvents = [];
-let currentUser = null; // { id, name, email }
-let userFavorites = []; // [eventId, ...]
-let showFavOnly = false;
-
-// ===== SHA-256 =====
-async function sha256(message) {
-    const msgBuffer = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-// ===== ユーザー管理 =====
-function getUsers() {
-    try { return JSON.parse(localStorage.getItem(USERS_STORAGE_KEY) || '[]'); }
-    catch (e) { return []; }
-}
-
-function saveUsers(users) {
-    localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
-}
-
-function loadSession() {
-    try {
-        const session = JSON.parse(sessionStorage.getItem(SESSION_KEY));
-        if (session && session.id) {
-            currentUser = session;
-            loadFavorites();
-            return true;
-        }
-    } catch (e) {}
-    return false;
-}
-
-function saveSession(user) {
-    currentUser = { id: user.id, name: user.name, email: user.email };
-    sessionStorage.setItem(SESSION_KEY, JSON.stringify(currentUser));
-    loadFavorites();
-}
-
-function clearSession() {
-    currentUser = null;
-    userFavorites = [];
-    showFavOnly = false;
-    sessionStorage.removeItem(SESSION_KEY);
-}
-
-function loadFavorites() {
-    if (!currentUser) { userFavorites = []; return; }
-    try {
-        userFavorites = JSON.parse(localStorage.getItem('beautyPortal_fav_' + currentUser.id) || '[]');
-    } catch (e) { userFavorites = []; }
-}
-
-function saveFavorites() {
-    if (!currentUser) return;
-    localStorage.setItem('beautyPortal_fav_' + currentUser.id, JSON.stringify(userFavorites));
-}
-
-function toggleFavorite(eventId) {
-    if (!currentUser) return false;
-    const idx = userFavorites.indexOf(eventId);
-    if (idx === -1) { userFavorites.push(eventId); }
-    else { userFavorites.splice(idx, 1); }
-    saveFavorites();
-    return true;
-}
-
-function isFavorite(eventId) {
-    return userFavorites.includes(eventId);
-}
+let activeQuickRange = 'all'; // 'all' | 'thisMonth' | 'nextMonth' | 'thisYear'
 
 // ===== DOM Ready =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -87,141 +17,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchFilter = document.getElementById('search-filter');
     const categoryFilter = document.getElementById('category-filter');
     const regionFilter = document.getElementById('region-filter');
-    const submitBtn = document.getElementById('submit-event-btn');
+    const submitBtn = document.getElementById('nav-submit-btn');
     const modal = document.getElementById('submit-modal');
     const modalClose = document.getElementById('modal-close');
     const submitForm = document.getElementById('submit-form');
 
-    // Auth elements
-    const navGuest = document.getElementById('nav-guest');
-    const navUser = document.getElementById('nav-user');
-    const navUserName = document.getElementById('nav-user-name');
-    const navLoginBtn = document.getElementById('nav-login-btn');
-    const navRegisterBtn = document.getElementById('nav-register-btn');
-    const navLogoutBtn = document.getElementById('nav-logout-btn');
-    const loginModal = document.getElementById('login-modal');
-    const registerModal = document.getElementById('register-modal');
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
-    const loginError = document.getElementById('login-error');
-    const registerError = document.getElementById('register-error');
-    const favFilterBtn = document.getElementById('fav-filter-btn');
-
-    // ===== Auth UI更新 =====
-    function updateAuthUI() {
-        if (currentUser) {
-            navGuest.style.display = 'none';
-            navUser.style.display = 'flex';
-            navUserName.innerHTML = '<i class="fas fa-user-circle"></i> ' + currentUser.name;
-            favFilterBtn.title = 'お気に入りのみ表示';
-        } else {
-            navGuest.style.display = 'flex';
-            navUser.style.display = 'none';
-            navUserName.textContent = '';
-            favFilterBtn.title = 'ログインするとお気に入りが使えます';
-            favFilterBtn.classList.remove('active');
-            showFavOnly = false;
-        }
-    }
-
-    // セッション復帰
-    loadSession();
-    updateAuthUI();
-
-    // ===== モーダル汎用 =====
+    // ===== モーダル =====
     function openModal(m) { m.classList.add('active'); document.body.style.overflow = 'hidden'; }
     function closeModal(m) { m.classList.remove('active'); document.body.style.overflow = ''; }
 
-    // ナビゲーションボタン
-    navLoginBtn.addEventListener('click', () => openModal(loginModal));
-    navRegisterBtn.addEventListener('click', () => openModal(registerModal));
-    document.getElementById('login-modal-close').addEventListener('click', () => closeModal(loginModal));
-    document.getElementById('register-modal-close').addEventListener('click', () => closeModal(registerModal));
-    document.getElementById('switch-to-register').addEventListener('click', (e) => {
-        e.preventDefault(); closeModal(loginModal); openModal(registerModal);
-    });
-    document.getElementById('switch-to-login').addEventListener('click', (e) => {
-        e.preventDefault(); closeModal(registerModal); openModal(loginModal);
-    });
-
-    // ログアウト
-    navLogoutBtn.addEventListener('click', () => {
-        clearSession();
-        updateAuthUI();
-        filterEvents();
-        showToast('ログアウトしました');
+    // ===== クイック日付フィルタ =====
+    const quickFilterBtns = document.querySelectorAll('.quick-filter-btn');
+    quickFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            quickFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeQuickRange = btn.getAttribute('data-range');
+            filterEvents();
+        });
     });
 
-    // ===== 新規登録 =====
-    registerForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        registerError.textContent = '';
-        const name = document.getElementById('register-name').value.trim();
-        const email = document.getElementById('register-email').value.trim();
-        const password = document.getElementById('register-password').value;
-
-        if (password.length < 6) {
-            registerError.textContent = 'パスワードは6文字以上で入力してください';
-            return;
+    function getQuickDateRange(range) {
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = now.getMonth();
+        switch (range) {
+            case 'thisMonth':
+                return {
+                    start: `${y}-${String(m + 1).padStart(2, '0')}-01`,
+                    end: `${y}-${String(m + 1).padStart(2, '0')}-${String(new Date(y, m + 1, 0).getDate()).padStart(2, '0')}`
+                };
+            case 'nextMonth': {
+                const ny = m === 11 ? y + 1 : y;
+                const nm = m === 11 ? 0 : m + 1;
+                return {
+                    start: `${ny}-${String(nm + 1).padStart(2, '0')}-01`,
+                    end: `${ny}-${String(nm + 1).padStart(2, '0')}-${String(new Date(ny, nm + 1, 0).getDate()).padStart(2, '0')}`
+                };
+            }
+            case 'thisYear':
+                return { start: `${y}-01-01`, end: `${y}-12-31` };
+            default:
+                return null;
         }
-
-        const users = getUsers();
-        if (users.some(u => u.email === email)) {
-            registerError.textContent = 'このメールアドレスは既に登録されています';
-            return;
-        }
-
-        const hash = await sha256(password);
-        const newUser = { id: Date.now(), name, email, passwordHash: hash, createdAt: new Date().toISOString() };
-        users.push(newUser);
-        saveUsers(users);
-        saveSession(newUser);
-        updateAuthUI();
-        closeModal(registerModal);
-        registerForm.reset();
-        filterEvents();
-        showToast('アカウントを作成しました。ようこそ！');
-    });
-
-    // ===== ログイン =====
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        loginError.textContent = '';
-        const email = document.getElementById('login-email').value.trim();
-        const password = document.getElementById('login-password').value;
-
-        const users = getUsers();
-        const hash = await sha256(password);
-        const user = users.find(u => u.email === email && u.passwordHash === hash);
-
-        if (!user) {
-            loginError.textContent = 'メールアドレスまたはパスワードが正しくありません';
-            return;
-        }
-
-        saveSession(user);
-        updateAuthUI();
-        closeModal(loginModal);
-        loginForm.reset();
-        filterEvents();
-        showToast('ログインしました');
-    });
-
-    // ===== お気に入りフィルタ =====
-    favFilterBtn.addEventListener('click', () => {
-        if (!currentUser) {
-            openModal(loginModal);
-            return;
-        }
-        showFavOnly = !showFavOnly;
-        favFilterBtn.classList.toggle('active', showFavOnly);
-        if (showFavOnly) {
-            favFilterBtn.innerHTML = '<i class="fas fa-star"></i> お気に入り';
-        } else {
-            favFilterBtn.innerHTML = '<i class="far fa-star"></i> お気に入り';
-        }
-        filterEvents();
-    });
+    }
 
     // ===== データ読み込み =====
     async function loadEvents() {
@@ -259,6 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return '<span class="source-badge auto-badge"><i class="fas fa-check-circle"></i> 公式情報</span>';
     };
 
+    // インフィード広告HTML
+    function createInFeedAd() {
+        const ad = document.createElement('div');
+        ad.className = 'ad-infeed';
+        ad.innerHTML = '<span class="ad-label">Advertisement</span><div>インフィード広告枠</div>';
+        return ad;
+    }
+
     // イベント描画
     const renderEvents = (events) => {
         eventsGrid.innerHTML = '';
@@ -272,23 +119,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (countEl) { countEl.textContent = events.length + ' 件のイベント'; }
 
         events.forEach((event, index) => {
-            const delay = index * 0.07;
+            // インフィード広告の挿入
+            if (index > 0 && index % AD_INTERVAL === 0) {
+                eventsGrid.appendChild(createInFeedAd());
+            }
+
+            const delay = Math.min(index * 0.05, 1);
             const card = document.createElement('article');
             card.className = 'event-card';
             card.style.animationDelay = delay + 's';
-
-            const faved = isFavorite(event.id);
-            const favBtnHtml = currentUser
-                ? '<button class="card-fav-btn' + (faved ? ' faved' : '') + '" data-id="' + event.id + '" title="お気に入り"><i class="' + (faved ? 'fas' : 'far') + ' fa-star"></i></button>'
-                : '';
 
             const urlButton = event.url && event.url !== '#'
                 ? '<a href="event.html?id=' + event.id + '" class="btn-primary"><i class="fas fa-info-circle"></i> 詳細を見る</a>'
                 : '<span class="btn-primary btn-disabled">詳細情報なし</span>';
 
-            card.innerHTML = '<div class="card-header" style="position:relative;">'
+            card.innerHTML = '<div class="card-header">'
                 + '<span class="card-category ' + getCategoryClass(event.category) + '">' + event.category + '</span>'
-                + favBtnHtml
                 + '<div class="card-date"><i class="far fa-calendar-alt"></i> ' + event.date + '</div>'
                 + '<h3 class="card-title">' + event.title + '</h3>'
                 + '</div>'
@@ -303,21 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 + '</div>';
 
             eventsGrid.appendChild(card);
-        });
-
-        // お気に入りボタンのイベント
-        eventsGrid.querySelectorAll('.card-fav-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const id = parseInt(btn.getAttribute('data-id'));
-                toggleFavorite(id);
-                const nowFaved = isFavorite(id);
-                btn.classList.toggle('faved', nowFaved);
-                btn.querySelector('i').className = nowFaved ? 'fas fa-star' : 'far fa-star';
-                if (showFavOnly && !nowFaved) {
-                    filterEvents();
-                }
-            });
         });
     };
 
@@ -438,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const searchValue = searchFilter.value.toLowerCase().trim();
         const categoryValue = categoryFilter.value;
         const regionValue = regionFilter.value;
+        const quickRange = getQuickDateRange(activeQuickRange);
 
         const filtered = allDisplayEvents.filter(event => {
             const matchSearch = searchValue === '' ||
@@ -451,10 +283,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedDate && event.sortDate) { matchDate = event.sortDate === selectedDate; }
             else if (selectedDate && !event.sortDate) { matchDate = false; }
 
-            let matchFav = true;
-            if (showFavOnly) { matchFav = isFavorite(event.id); }
+            // クイック日付フィルタ
+            let matchQuick = true;
+            if (quickRange && event.sortDate) {
+                matchQuick = event.sortDate >= quickRange.start && event.sortDate <= quickRange.end;
+            } else if (quickRange && !event.sortDate) {
+                matchQuick = false;
+            }
 
-            return matchSearch && matchCategory && matchRegion && matchDate && matchFav;
+            return matchSearch && matchCategory && matchRegion && matchDate && matchQuick;
         });
 
         renderEvents(filtered);
@@ -469,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            [modal, loginModal, registerModal].forEach(m => { if (m && m.classList.contains('active')) closeModal(m); });
+            if (modal && modal.classList.contains('active')) closeModal(modal);
         }
     });
 
