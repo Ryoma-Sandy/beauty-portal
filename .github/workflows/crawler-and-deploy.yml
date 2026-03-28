@@ -50,8 +50,12 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
           local-dir: ./
           server-dir: /web/beauty-study-matome.site/
+          timeout: 60000
+          log-level: verbose
           exclude: |
             **/.git*
             **/.git*/**
@@ -63,3 +67,4 @@ jobs:
             package-lock.json
             .gitignore
             .gitignore.bak
+            hero-bg.png
