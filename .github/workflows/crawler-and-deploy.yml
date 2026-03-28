@@ -9,17 +9,22 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   crawl-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install dependencies
         run: npm ci
@@ -29,15 +34,15 @@ jobs:
 
       - name: Run crawler
         run: npm run crawl
+        continue-on-error: true
 
       - name: Commit updated data
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add events-data.json crawler-log.txt
-          # 変更がある場合のみコミット
+          git add events-data.json crawler-log.txt || true
           git diff --staged --quiet || git commit -m "Auto-update events-data.json [skip ci]"
-          git push
+          git push || echo "Nothing to push"
 
       - name: Deploy to MuuMuu Server via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -46,13 +51,15 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /
+          server-dir: /web/beauty-study-matome.site/
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             .github/**
             crawler.js
+            crawler-log.txt
             package.json
             package-lock.json
             .gitignore
+            .gitignore.bak
