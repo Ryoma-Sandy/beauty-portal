@@ -108,13 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return '<span class="source-badge auto-badge"><i class="fas fa-check-circle"></i> 公式情報</span>';
     };
 
-    // インフィード広告HTML
-    function createInFeedAd() {
-        const ad = document.createElement('div');
-        ad.className = 'ad-infeed';
-        ad.innerHTML = '<span class="ad-label">Advertisement</span><div>インフィード広告枠</div>';
-        return ad;
-    }
 
     // イベント描画
     const renderEvents = (events) => {
@@ -129,10 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (countEl) { countEl.textContent = events.length + ' 件のイベント'; }
 
         events.forEach((event, index) => {
-            // インフィード広告の挿入
-            if (index > 0 && index % AD_INTERVAL === 0) {
-                eventsGrid.appendChild(createInFeedAd());
-            }
+
 
             const delay = Math.min(index * 0.05, 1);
             const card = document.createElement('article');
