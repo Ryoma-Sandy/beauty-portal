@@ -11,7 +11,8 @@
             "organizer": "光伸メディカルクリニック",
             "description": "少人数制の実践ハンズオンセミナー。唇・口角アップ、こめかみ、鼻など部位別にヒアルロン酸注入の手技を習得。",
             "url": "https://kmcl.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 1,
@@ -24,7 +25,8 @@
             "organizer": "日本美容外科学会（JSAPS）",
             "description": "「Beauty in Safety」をテーマに、千葉大学 三川信之教授が会長を務める学術集会。美容外科における安全性の最新知見を共有。",
             "url": "https://www.jsprs.or.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "国内学会"
         },
         {
             "id": 2,
@@ -37,7 +39,8 @@
             "organizer": "Aesthetic Medical Academy (AMA)",
             "description": "最新の処方が変える美肌治療の最前線を紹介する無料エキスパートセミナー。注入から浸透へのパラダイムシフトを解説。",
             "url": "https://aesthetic-medical-academy.com/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 3,
@@ -50,7 +53,8 @@
             "organizer": "日本美容医学研究会",
             "description": "Dermatology、Injection、Surgeryの3軸で美容医療の「本質」と「判断」に焦点を当てた実践型フォーラム。",
             "url": "https://jihiken.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 4,
@@ -63,7 +67,8 @@
             "organizer": "BAZ BIOMEDIC JAPAN",
             "description": "レーザー治療に特化したクリニック運営の経営戦略を解説。デバイス中心の施術メニュー構成や集患戦略を学べる。",
             "url": "https://bazbiomedic-japan.com/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 14,
@@ -76,7 +81,8 @@
             "organizer": "テルナジャパン",
             "description": "医師・歯科医師向けのヒアルロン酸注入およびボツリヌス治療に関する定期セミナー。",
             "url": "https://ternaj.com/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 5,
@@ -89,7 +95,8 @@
             "organizer": "日本美容医療学会（JAPSA）",
             "description": "美容医療全般にわたる最新の研究成果・症例報告を共有する研究会。関西エリアで定期開催中。",
             "url": "https://japsa.or.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 6,
@@ -102,7 +109,8 @@
             "organizer": "エムエムアンドニーク",
             "description": "Qスイッチルビーレーザーによる色素斑・雀卵斑・ADM治療の最新の進歩に関するランチョンセミナー。",
             "url": "https://mm-japan.co.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 15,
@@ -115,7 +123,8 @@
             "organizer": "国際美容医療研究会",
             "description": "ヒアルロン酸注入技法を全3回シリーズで体系的に学べるセミナー。基礎から応用まで段階的にカバー。",
             "url": "https://isamed.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 7,
@@ -128,7 +137,8 @@
             "organizer": "日本美容外科学会（JSAS）",
             "description": "日本美容外科学会による大規模学術集会。美容外科領域の最新手術手技、トラブルシューティング、研究発表。",
             "url": "https://jsas.or.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "国内学会"
         },
         {
             "id": 16,
@@ -141,7 +151,8 @@
             "organizer": "GSKPro",
             "description": "ボトックス製品の使用資格取得のためのWEB講習と実技セミナー。オンラインで座学、対面で実技を習得。",
             "url": "https://gskpro.com/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 8,
@@ -154,7 +165,8 @@
             "organizer": "日本抗加齢医学会",
             "description": "「『人新世』のアンチエイジング；食事、運動、睡眠、美容による統合医療」がテーマ。山岸昌一会長。",
             "url": "https://c-linkage.co.jp/jaam26/",
-            "source": "auto"
+            "source": "auto",
+            "type": "国内学会"
         },
         {
             "id": 9,
@@ -167,7 +179,8 @@
             "organizer": "日本美容外科学会（JSAPS）",
             "description": "中北信昭先生（喜美会 自由が丘クリニック）が学術集会会長を務める。",
             "url": "https://www.jsprs.or.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "国内学会"
         },
         {
             "id": 10,
@@ -180,7 +193,8 @@
             "organizer": "日本美容医療学会（JAPSA）",
             "description": "美容医療の各分野における臨床知見の共有と討論の場。関西での開催。",
             "url": "https://japsa.or.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "勉強会"
         },
         {
             "id": 11,
@@ -193,7 +207,8 @@
             "organizer": "日本美容皮膚科学会",
             "description": "「みんなキレイに幸せに」をテーマに菊地克子会頭のもと開催。美容皮膚科の最大規模の学術大会。",
             "url": "https://shun-convention.jp/bihifu44/",
-            "source": "auto"
+            "source": "auto",
+            "type": "国内学会"
         },
         {
             "title": "第20回 日本美容医療学会 研究会",
@@ -206,7 +221,8 @@
             "description": "",
             "url": "https://japsa.or.jp/",
             "source": "auto",
-            "id": 117
+            "id": 117,
+            "type": "勉強会"
         },
         {
             "title": "第3回 日本美容医療学会 学術総会",
@@ -219,7 +235,8 @@
             "description": "",
             "url": "https://japsa.or.jp/",
             "source": "auto",
-            "id": 116
+            "id": 116,
+            "type": "国内学会"
         },
         {
             "title": "第2回 日本美容医療学会 学術総会",
@@ -232,7 +249,8 @@
             "description": "",
             "url": "https://japsa.or.jp/",
             "source": "auto",
-            "id": 118
+            "id": 118,
+            "type": "国内学会"
         },
         {
             "id": 12,
@@ -245,7 +263,8 @@
             "organizer": "日本美容外科学会（JSAPS）",
             "description": "「チャンプルーを極める〜多様性の受容、そして創造〜」がテーマ。新城憲会長。",
             "url": "https://jsaps49.jp/",
-            "source": "auto"
+            "source": "auto",
+            "type": "国内学会"
         }
     ],
     "pending": [],

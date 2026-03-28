@@ -1,0 +1,41 @@
+{
+    "searchKeywords": {
+        "domestic": [
+            "学術集会",
+            "総会",
+            "大会",
+            "研究会",
+            "学術大会",
+            "年次集会"
+        ],
+        "international": [
+            "Congress",
+            "Annual Meeting",
+            "Symposium",
+            "Conference",
+            "Forum",
+            "Summit",
+            "Workshop"
+        ],
+        "study": [
+            "セミナー",
+            "勉強会",
+            "ハンズオン",
+            "講習",
+            "ワークショップ",
+            "研修会",
+            "実技セミナー"
+        ]
+    },
+    "titlePatterns": {
+        "domestic": "第(\\d+)回[^。\\n]{2,60}(?:KEYWORDS)",
+        "jsaps": "(第\\d+回[^。\\n]*(?:KEYWORDS))",
+        "international": "(?:International\\s+)?(?:KEYWORDS)[^.]{0,120}?(202[6-9])"
+    },
+    "datePatterns": {
+        "japanese": "(\\d{4})年(\\d{1,2})月(\\d{1,2})日",
+        "yearOnly": "202[6-9]"
+    },
+    "minYear": 2026,
+    "lastUpdated": null
+}

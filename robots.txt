@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# サイトマップ
+Sitemap: http://beauty-study-matome.site/sitemap.xml
+
+# 管理者画面はクロール対象外
+Disallow: /admin.html
+Disallow: /admin.css
+Disallow: /admin.js
+Disallow: /crawler.js
+Disallow: /crawler-config.json
+Disallow: /crawler-log.txt
+Disallow: /package.json
+Disallow: /node_modules/
+Disallow: /.github/

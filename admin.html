@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理者ダッシュボード - 美容医療ポータル</title>
+    <title>管理者ダッシュボード - 美容医療まとめポータル</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
                 <i class="fas fa-shield-alt"></i>
             </div>
             <h1>管理者ログイン</h1>
-            <p>美容医療ポータル管理画面</p>
+            <p>美容医療まとめポータル管理画面</p>
             <form id="login-form">
                 <div class="login-field">
                     <label for="admin-password"><i class="fas fa-lock"></i> パスワード</label>
@@ -86,6 +86,9 @@
             <button class="tab-btn" data-tab="official-tab">
                 <i class="fas fa-database"></i> 公式イベント
             </button>
+            <button class="tab-btn" data-tab="crawler-tab">
+                <i class="fas fa-spider"></i> クローラー設定
+            </button>
         </nav>
 
         <!-- 承認待ちタブ -->
@@ -124,6 +127,158 @@
             </div>
             <div class="event-list" id="official-list"></div>
         </section>
+
+        <!-- クローラー設定タブ -->
+        <section class="tab-content" id="crawler-tab">
+            <div class="section-header">
+                <h2><i class="fas fa-spider"></i> クローラー設定</h2>
+                <p class="section-desc">現在クロール対象となっているサイト一覧です。新規サイトを追加すると crawler.js に反映されます。</p>
+            </div>
+
+            <!-- クロール対象一覧 -->
+            <div class="crawler-targets" id="crawler-targets"></div>
+
+            <!-- 新規追加フォーム -->
+            <div class="crawler-add-section">
+                <h3><i class="fas fa-plus-circle"></i> クロール対象を追加</h3>
+                <form id="add-crawl-form" class="crawler-add-form">
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>サイト名</label>
+                            <input type="text" id="crawl-name" placeholder="例：日本○○学会" required />
+                        </div>
+                        <div class="form-group">
+                            <label>URL</label>
+                            <input type="url" id="crawl-url" placeholder="https://example.com" required />
+                        </div>
+                    </div>
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>分野</label>
+                            <select id="crawl-category">
+                                <option value="美容皮膚科">美容皮膚科</option>
+                                <option value="美容外科">美容外科</option>
+                                <option value="総合">総合・その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>カテゴリ</label>
+                            <select id="crawl-type">
+                                <option value="国内学会">国内学会</option>
+                                <option value="海外学会">海外学会</option>
+                                <option value="勉強会">勉強会</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>パーサータイプ</label>
+                            <select id="crawl-parser">
+                                <option value="parseGenericConference">国内学会（汎用）</option>
+                                <option value="parseInternationalConference">海外学会</option>
+                                <option value="parseKenkyuukai">研究会サイト</option>
+                            </select>
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+                    <button type="submit" class="btn-save"><i class="fas fa-plus"></i> 追加する</button>
+                </form>
+            </div>
+
+            <!-- 検索キーワード設定 -->
+            <div class="crawler-keywords-section">
+                <h3><i class="fas fa-search"></i> 検索キーワード設定</h3>
+                <p class="section-desc">クローラーがイベントを検出する際に使用するキーワードです。追加・削除が可能です。</p>
+                
+                <div class="keyword-group">
+                    <h4><span class="badge badge-domestic">国内学会</span> 検索キーワード</h4>
+                    <div class="keyword-tags" id="kw-domestic"></div>
+                    <div class="keyword-add-row">
+                        <input type="text" id="kw-domestic-input" placeholder="新しいキーワード..." />
+                        <button class="btn-sm btn-approve" onclick="addKeyword('domestic')"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="keyword-group">
+                    <h4><span class="badge badge-international">海外学会</span> 検索キーワード</h4>
+                    <div class="keyword-tags" id="kw-international"></div>
+                    <div class="keyword-add-row">
+                        <input type="text" id="kw-international-input" placeholder="新しいキーワード..." />
+                        <button class="btn-sm btn-approve" onclick="addKeyword('international')"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="keyword-group">
+                    <h4><span class="badge badge-study">勉強会</span> 検索キーワード</h4>
+                    <div class="keyword-tags" id="kw-study"></div>
+                    <div class="keyword-add-row">
+                        <input type="text" id="kw-study-input" placeholder="新しいキーワード..." />
+                        <button class="btn-sm btn-approve" onclick="addKeyword('study')"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="keyword-actions">
+                    <button class="btn-save" id="btn-download-config"><i class="fas fa-download"></i> crawler-config.json をダウンロード</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- クローラー編集モーダル -->
+        <div class="modal-overlay" id="crawl-edit-modal">
+            <div class="modal-content" style="max-width:480px;">
+                <div class="modal-header">
+                    <h2><i class="fas fa-edit"></i> クロール対象を編集</h2>
+                    <button class="modal-close-btn" id="crawl-edit-close"><i class="fas fa-times"></i></button>
+                </div>
+                <form id="crawl-edit-form" class="edit-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>サイト名</label>
+                            <input type="text" id="crawl-edit-name" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>URL</label>
+                            <input type="url" id="crawl-edit-url" required />
+                        </div>
+                    </div>
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>分野</label>
+                            <select id="crawl-edit-category">
+                                <option value="美容皮膚科">美容皮膚科</option>
+                                <option value="美容外科">美容外科</option>
+                                <option value="総合">総合・その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>カテゴリ</label>
+                            <select id="crawl-edit-type">
+                                <option value="国内学会">国内学会</option>
+                                <option value="海外学会">海外学会</option>
+                                <option value="勉強会">勉強会</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row two-col">
+                        <div class="form-group">
+                            <label>パーサータイプ</label>
+                            <select id="crawl-edit-parser">
+                                <option value="parseGenericConference">国内学会（汎用）</option>
+                                <option value="parseInternationalConference">海外学会</option>
+                                <option value="parseKenkyuukai">研究会サイト</option>
+                                <option value="parseJSAPS">JSAPS専用</option>
+                            </select>
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save"><i class="fas fa-save"></i> 保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <!-- 編集モーダル -->
         <div class="modal-overlay" id="edit-modal">

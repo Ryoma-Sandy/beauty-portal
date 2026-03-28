@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>美容医療 学会・勉強会ポータル | 全国の学術集会・セミナー情報</title>
+    <title>美容医療 学会・勉強会 まとめポータル | 全国の学術集会・セミナー情報</title>
     <meta name="description" content="美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅するポータルサイト。JSAPS, JSAS, ISAPS等の国内外学会を完全カバー。">
     <meta name="keywords" content="美容医療,学会,勉強会,セミナー,美容外科,美容皮膚科,JSAPS,JSAS,学術集会">
-    <meta property="og:title" content="美容医療 学会・勉強会ポータル">
+    <meta property="og:title" content="美容医療 学会・勉強会 まとめポータル">
     <meta property="og:description" content="美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅。">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
@@ -20,7 +20,7 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "美容医療 学会・勉強会ポータル",
+        "name": "美容医療 学会・勉強会 まとめポータル",
         "description": "美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅するポータルサイト。",
         "potentialAction": {
             "@type": "SearchAction",
@@ -34,8 +34,9 @@
     <!-- ===== ナビバー ===== -->
     <nav class="user-nav" id="user-nav">
         <div class="user-nav-inner">
-            <span class="user-nav-logo"><i class="fas fa-star-of-life"></i> 美容医療ポータル</span>
+            <a href="#" class="user-nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><i class="fas fa-star-of-life"></i> 美容医療まとめポータル</a>
             <div class="user-nav-actions">
+                <button class="nav-btn" id="nav-inquiry-btn"><i class="fas fa-envelope"></i> お問い合わせ</button>
                 <button class="nav-btn nav-btn-accent" id="nav-submit-btn"><i class="fas fa-paper-plane"></i> 掲載を申請</button>
             </div>
         </div>
@@ -43,7 +44,7 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1><i class="fas fa-star-of-life hero-icon"></i> 美容医療 学会・勉強会ポータル</h1>
+            <h1><i class="fas fa-star-of-life hero-icon"></i> 美容医療 学会・勉強会 まとめポータル</h1>
             <p>美容皮膚科・美容外科に関する最新の学術集会、ハンズオンセミナー、勉強会情報を網羅。</p>
         </div>
     </header>
@@ -71,12 +72,21 @@
                 <input type="text" id="search-filter" placeholder="学会名、テーマ、主催者など..." />
             </div>
             <div class="filter-group">
-                <label for="category-filter"><i class="fas fa-tag"></i> カテゴリ</label>
+                <label for="category-filter"><i class="fas fa-tag"></i> 分野</label>
                 <select id="category-filter">
                     <option value="all">すべて</option>
                     <option value="美容皮膚科">美容皮膚科</option>
                     <option value="美容外科">美容外科</option>
                     <option value="総合">総合・その他</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="type-filter"><i class="fas fa-folder"></i> カテゴリ</label>
+                <select id="type-filter">
+                    <option value="all">すべて</option>
+                    <option value="国内学会">国内学会</option>
+                    <option value="海外学会">海外学会</option>
+                    <option value="勉強会">勉強会</option>
                 </select>
             </div>
             <div class="filter-group">
@@ -160,6 +170,9 @@
                 掲載申請は管理者の承認後にポータルへ掲載されます。
             </div>
             <form id="submit-form" class="submit-form">
+                <input type="hidden" name="access_key" value="74948e96-18d6-4c79-b1e1-e5814ebe916c">
+                <input type="hidden" name="subject" value="【掲載申請】新規イベント申請">
+                <input type="hidden" name="from_name" value="美容医療まとめポータル 掲載申請">
                 <!-- 申請者情報 -->
                 <div class="form-section-title"><i class="fas fa-user"></i> 申請者情報</div>
                 <div class="form-row two-col">
@@ -189,14 +202,15 @@
                 </div>
                 <div class="form-row two-col">
                     <div class="form-group">
-                        <label for="input-date">開催日程 <span class="required">*</span></label>
-                        <input type="text" id="input-date" name="date" placeholder="例：2026年10月15日 - 16日" required />
+                        <label for="input-date-start">開催開始日 <span class="required">*</span></label>
+                        <input type="date" id="input-date-start" name="dateStart" required />
                     </div>
                     <div class="form-group">
-                        <label for="input-sort-date">並び替え用日付</label>
-                        <input type="date" id="input-sort-date" name="sortDate" />
+                        <label for="input-date-end">開催終了日 <span class="hint">（1日のみの場合は空欄可）</span></label>
+                        <input type="date" id="input-date-end" name="dateEnd" />
                     </div>
                 </div>
+                <p class="form-note"><i class="fas fa-info-circle"></i> イベントは最終日の1年前から掲載されます。</p>
                 <div class="form-row two-col">
                     <div class="form-group">
                         <label for="input-category">カテゴリ <span class="required">*</span></label>
@@ -238,12 +252,116 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group full-width">
-                        <label for="input-url">公式サイトURL</label>
+                        <label for="input-url">公式サイトURL <span class="hint">（HPがない場合はSNSのみでもOK）</span></label>
                         <input type="url" id="input-url" name="url" placeholder="https://example.com" />
+                    </div>
+                </div>
+                <div class="form-row three-col">
+                    <div class="form-group">
+                        <label for="input-line"><i class="fab fa-line" style="color:#06C755"></i> LINE</label>
+                        <input type="url" id="input-line" name="line" placeholder="https://line.me/..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="input-instagram"><i class="fab fa-instagram" style="color:#E1306C"></i> Instagram</label>
+                        <input type="url" id="input-instagram" name="instagram" placeholder="https://instagram.com/..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="input-facebook"><i class="fab fa-facebook" style="color:#1877F2"></i> Facebook</label>
+                        <input type="url" id="input-facebook" name="facebook" placeholder="https://facebook.com/..." />
                     </div>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn-primary btn-submit"><i class="fas fa-paper-plane"></i> 掲載を申請する</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== ログインモーダル ===== -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2><i class="fas fa-sign-in-alt"></i> ログイン</h2>
+                <button class="modal-close-btn" id="login-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">メールアドレス</label>
+                    <input type="email" id="login-email" placeholder="info@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="login-password">パスワード</label>
+                    <input type="password" id="login-password" placeholder="パスワード" required />
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-sign-in-alt"></i> ログイン</button>
+                </div>
+                <p class="auth-switch">アカウントをお持ちでない方は <a href="#" id="switch-to-register">新規登録</a></p>
+                <p class="auth-error" id="login-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== 新規登録モーダル ===== -->
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> 新規登録</h2>
+                <button class="modal-close-btn" id="register-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">お名前</label>
+                    <input type="text" id="register-name" placeholder="山田 太郎" required />
+                </div>
+                <div class="form-group">
+                    <label for="register-email">メールアドレス</label>
+                    <input type="email" id="register-email" placeholder="info@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="register-password">パスワード（6文字以上）</label>
+                    <input type="password" id="register-password" minlength="6" placeholder="パスワード" required />
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-user-plus"></i> 登録する</button>
+                </div>
+                <p class="auth-switch">すでにアカウントをお持ちの方は <a href="#" id="switch-to-login">ログイン</a></p>
+                <p class="auth-error" id="register-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== お問い合わせモーダル ===== -->
+    <div class="modal-overlay" id="inquiry-modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-envelope"></i> お問い合わせ</h2>
+                <button class="modal-close-btn" id="inquiry-close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="inquiry-form" class="submit-form">
+                <input type="hidden" name="access_key" value="74948e96-18d6-4c79-b1e1-e5814ebe916c">
+                <input type="hidden" name="subject" value="【お問い合わせ】美容医療まとめポータル">
+                <input type="hidden" name="from_name" value="美容医療まとめポータル お問い合わせ">
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="inq-name">お名前 <span class="required">*</span></label>
+                        <input type="text" id="inq-name" name="name" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="inq-email">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="inq-email" name="email" required />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="inq-message">お問い合わせ内容 <span class="required">*</span></label>
+                        <textarea id="inq-message" name="message" rows="5" required></textarea>
+                    </div>
+                </div>
+                <div class="form-actions" style="margin-top: 1rem;">
+                    <button type="submit" class="btn-primary btn-submit"><i class="fas fa-paper-plane"></i> 送信する</button>
                 </div>
             </form>
         </div>
@@ -258,7 +376,13 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 美容医療 学会・勉強会ポータル All Rights Reserved.</p>
+        <div style="margin-bottom: 0.8rem;">
+            <a href="company.html" style="color:var(--text-muted);text-decoration:none;font-size:0.9rem;margin:0 10px;">運営会社</a> | 
+            <a href="terms.html" style="color:var(--text-muted);text-decoration:none;font-size:0.9rem;margin:0 10px;">利用規約</a> | 
+            <a href="privacy.html" style="color:var(--text-muted);text-decoration:none;font-size:0.9rem;margin:0 10px;">プライバシーポリシー</a> |
+            <a href="#" id="footer-inquiry-link" style="color:var(--text-muted);text-decoration:none;font-size:0.9rem;margin:0 10px;"><i class="fas fa-envelope"></i> お問い合わせ</a>
+        </div>
+        <p>&copy; 2026 美容医療 学会・勉強会 まとめポータル All Rights Reserved.</p>
         <p class="footer-sub">掲載情報はWebリサーチおよび承認済みユーザー投稿に基づくものです。最新情報は各学会の公式サイトをご確認ください。</p>
     </footer>
 

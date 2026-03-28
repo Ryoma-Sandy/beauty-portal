@@ -1,13 +1,13 @@
-name: Crawler and Deploy
+name: Crawler and FTP Deploy (MuuMuu Server)
 
 on:
   schedule:
-    # 毎日UTC時間の0時（日本時間の午前9時）に実行
+    # 毎日日本時間の午前9時（UTC 0時）
     - cron: '0 0 * * *'
-  workflow_dispatch: # 手動実行用
-
-permissions:
-  contents: write
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   crawl-and-deploy:
@@ -24,35 +24,34 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Chromium
-        run: npx playwright install chromium --with-deps
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
 
       - name: Run crawler
         run: npm run crawl
 
-      - name: Commit updated data
+      - name: Commit updated data back to repository
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add events-data.json crawler-log.txt
-          # 変更がある場合のみコミット
           git diff --staged --quiet || git commit -m "Auto-update events-data.json [skip ci]"
           git push
 
       - name: Deploy to MuuMuu Server via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /
+          # サーバーにアップロードしない（不要・機密）ファイルを除外
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
-            .github/**
+            **/.github/**
             crawler.js
             package.json
             package-lock.json
-            .gitignore
+            playwright-report/**

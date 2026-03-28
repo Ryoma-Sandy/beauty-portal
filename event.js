@@ -79,9 +79,9 @@
         // パンくず更新
         document.getElementById('breadcrumb-title').textContent = event.title;
         // タイトル更新
-        document.title = event.title + ' | 美容医療 学会・勉強会ポータル';
+        document.title = event.title + ' | 美容医療 学会・勉強会 まとめポータル';
         // OGP更新
-        setMeta('og:title', event.title + ' | 美容医療 学会・勉強会ポータル');
+        setMeta('og:title', event.title + ' | 美容医療 学会・勉強会 まとめポータル');
         setMeta('og:description', (event.description || event.title).substring(0, 150));
         setMeta('description', event.date + ' ' + event.region + ' - ' + (event.description || event.title).substring(0, 120));
     }

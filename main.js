@@ -1,30 +1,40 @@
 /**
- * 美容医療 学会・勉強会ポータル – フロントエンド
+ * 美容医療 学会・勉強会 まとめポータル – フロントエンド
  * 
  * クイックフィルタ・カレンダー・インフィード広告
  */
 
 const DATA_URL = 'events-data.json';
 const PENDING_STORAGE_KEY = 'beautyPortal_pendingSubmissions';
-const AD_INTERVAL = 4; // N件ごとにインフィード広告を挿入
+const AD_INTERVAL = 6; // N件ごとにインフィード広告を挿入
 
 let allDisplayEvents = [];
-let activeQuickRange = 'all'; // 'all' | 'thisMonth' | 'nextMonth' | 'thisYear'
+let activeQuickRange = 'all';
 
 // ===== DOM Ready =====
 document.addEventListener('DOMContentLoaded', () => {
     const eventsGrid = document.getElementById('events-grid');
     const searchFilter = document.getElementById('search-filter');
     const categoryFilter = document.getElementById('category-filter');
+    const typeFilter = document.getElementById('type-filter');
     const regionFilter = document.getElementById('region-filter');
+    
+    // 申請モーダル
     const submitBtn = document.getElementById('nav-submit-btn');
     const modal = document.getElementById('submit-modal');
-    const modalClose = document.getElementById('modal-close');
+    const modalClose = document.getElementById('submit-close-btn') || document.getElementById('modal-close');
     const submitForm = document.getElementById('submit-form');
 
+    // お問い合わせモーダル
+    const inquiryBtn = document.getElementById('nav-inquiry-btn');
+    const inquiryFooterLink = document.getElementById('footer-inquiry-link');
+    const inquiryModal = document.getElementById('inquiry-modal');
+    const inquiryCloseBtn = document.getElementById('inquiry-close-btn');
+    const inquiryForm = document.getElementById('inquiry-form');
+
     // ===== モーダル =====
-    function openModal(m) { m.classList.add('active'); document.body.style.overflow = 'hidden'; }
-    function closeModal(m) { m.classList.remove('active'); document.body.style.overflow = ''; }
+    function openModal(m) { if(m) { m.classList.add('active'); document.body.style.overflow = 'hidden'; } }
+    function closeModal(m) { if(m) { m.classList.remove('active'); document.body.style.overflow = ''; } }
 
     // ===== クイック日付フィルタ =====
     const quickFilterBtns = document.querySelectorAll('.quick-filter-btn');
@@ -277,6 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 (event.description || '').toLowerCase().includes(searchValue) ||
                 (event.organizer && event.organizer.toLowerCase().includes(searchValue));
             const matchCategory = categoryValue === 'all' || event.category === categoryValue;
+            const typeValue = typeFilter ? typeFilter.value : 'all';
+            const matchType = typeValue === 'all' || event.type === typeValue;
             const matchRegion = regionValue === 'all' || event.region === regionValue;
 
             let matchDate = true;
@@ -291,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 matchQuick = false;
             }
 
-            return matchSearch && matchCategory && matchRegion && matchDate && matchQuick;
+            return matchSearch && matchCategory && matchType && matchRegion && matchDate && matchQuick;
         });
 
         renderEvents(filtered);
@@ -307,39 +319,131 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (modal && modal.classList.contains('active')) closeModal(modal);
+            if (inquiryModal && inquiryModal.classList.contains('active')) closeModal(inquiryModal);
         }
     });
 
-    // === フォーム送信 ===
+    // === お問い合わせモーダル ===
+    if (inquiryBtn && inquiryModal) inquiryBtn.addEventListener('click', (e) => { e.preventDefault(); openModal(inquiryModal); });
+    if (inquiryFooterLink && inquiryModal) inquiryFooterLink.addEventListener('click', (e) => { e.preventDefault(); openModal(inquiryModal); });
+    if (inquiryCloseBtn && inquiryModal) inquiryCloseBtn.addEventListener('click', () => closeModal(inquiryModal));
+    if (inquiryModal) inquiryModal.addEventListener('click', (e) => { if (e.target === inquiryModal) closeModal(inquiryModal); });
+
+    // === お問い合わせ送信（Web3Forms API） ===
+    if (inquiryForm) {
+        inquiryForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fd = new FormData(inquiryForm);
+            if (!fd.get('name') || !fd.get('email') || !fd.get('message')) {
+                alert('必須項目を入力してください。');
+                return;
+            }
+            const submitButton = inquiryForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 送信中...';
+            submitButton.disabled = true;
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: fd
+                });
+                const result = await res.json();
+                if (result.success) {
+                    showToast('お問い合わせを受け付けました。担当者よりご連絡いたします。');
+                    inquiryForm.reset();
+                    closeModal(inquiryModal);
+                } else {
+                    alert('送信に失敗しました。時間をおいて再度お試しください。');
+                }
+            } catch (err) {
+                console.error('送信エラー:', err);
+                alert('通信エラーが発生しました。インターネット接続を確認してください。');
+            } finally {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
+        });
+    }
+
+    // === フォーム送信（Web3Forms API + localStorage） ===
     if (submitForm) {
-        submitForm.addEventListener('submit', (e) => {
+        submitForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const fd = new FormData(submitForm);
             const title = fd.get('title')?.trim();
-            const date = fd.get('date')?.trim();
+            const dateStart = fd.get('dateStart');
+            const dateEnd = fd.get('dateEnd') || dateStart;
             const location = fd.get('location')?.trim();
             const description = fd.get('description')?.trim();
             const applicantName = fd.get('applicantName')?.trim();
             const applicantEmail = fd.get('applicantEmail')?.trim();
-            if (!title || !date || !location || !description || !applicantName || !applicantEmail) {
+            if (!title || !dateStart || !location || !description || !applicantName || !applicantEmail) {
                 alert('必須項目をすべて入力してください。');
                 return;
             }
+            const submitButton = submitForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 送信中...';
+            submitButton.disabled = true;
+
+            // 日付文字列を生成
+            const formatDate = (d) => {
+                const [y, m, dd] = d.split('-');
+                return `${y}年${parseInt(m)}月${parseInt(dd)}日`;
+            };
+            let dateStr = formatDate(dateStart);
+            if (dateEnd && dateEnd !== dateStart) {
+                dateStr += ' - ' + formatDate(dateEnd);
+            }
+            // 掲載開始日: 最終日の1年前
+            const endDate = new Date(dateEnd || dateStart);
+            const displayFrom = new Date(endDate);
+            displayFrom.setFullYear(displayFrom.getFullYear() - 1);
+
             const eventData = {
-                id: Date.now(), title, date,
-                sortDate: fd.get('sortDate') || '',
+                id: Date.now(), title, date: dateStr,
+                sortDate: dateStart,
+                dateStart: dateStart,
+                dateEnd: dateEnd || dateStart,
+                displayFrom: displayFrom.toISOString().split('T')[0],
                 category: fd.get('category'), region: fd.get('region'),
                 location, organizer: fd.get('organizer')?.trim() || '',
-                description, url: fd.get('url')?.trim() || '#',
+                description, url: fd.get('url')?.trim() || '',
+                sns: {
+                    line: fd.get('line')?.trim() || '',
+                    instagram: fd.get('instagram')?.trim() || '',
+                    facebook: fd.get('facebook')?.trim() || ''
+                },
                 source: 'user', submittedAt: new Date().toISOString(),
                 applicant: { name: applicantName, email: applicantEmail, company: fd.get('applicantCompany')?.trim() || '' }
             };
+
+            // localStorage に保存（管理画面用）
             try {
                 const pending = JSON.parse(localStorage.getItem(PENDING_STORAGE_KEY) || '[]');
                 pending.push(eventData);
                 localStorage.setItem(PENDING_STORAGE_KEY, JSON.stringify(pending));
             } catch (err) { console.error('保存エラー:', err); }
-            showToast('掲載申請を受け付けました。管理者の承認後に掲載されます。');
+
+            // Web3Forms APIへ送信（メール通知）
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: fd
+                });
+                const result = await res.json();
+                if (result.success) {
+                    showToast('掲載申請を受け付けました。管理者の承認後に掲載されます。');
+                } else {
+                    showToast('掲載申請を受け付けました（メール通知に失敗しましたが、データは保存されています）。');
+                }
+            } catch (err) {
+                console.error('Web3Forms送信エラー:', err);
+                showToast('掲載申請を受け付けました（メール通知に失敗しましたが、データは保存されています）。');
+            } finally {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
             submitForm.reset();
             closeModal(modal);
         });
@@ -358,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // フィルターリスナー
     searchFilter.addEventListener('input', filterEvents);
     categoryFilter.addEventListener('change', filterEvents);
+    if (typeFilter) typeFilter.addEventListener('change', filterEvents);
     regionFilter.addEventListener('change', filterEvents);
 
     // 初期読み込み
