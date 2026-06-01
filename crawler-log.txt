@@ -6447,3 +6447,98 @@ IV Peptide Therapy Mas...)
 [2026-05-31T04:14:33.231Z]   承認待ち: 0 件
 [2026-05-31T04:14:33.231Z]   承認済み: 0 件
 [2026-05-31T04:14:33.231Z] 
+[2026-06-01T04:26:42.759Z] === クロール開始 (Playwright) ===
+[2026-06-01T04:26:42.760Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-06-01T04:26:45.028Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-06-01T04:26:50.908Z]   0 件のイベント候補を検出
+[2026-06-01T04:26:50.916Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-06-01T04:27:16.568Z]   0 件のイベント候補を検出
+[2026-06-01T04:27:16.576Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-06-01T04:27:21.728Z]   0 件のイベント候補を検出
+[2026-06-01T04:27:21.730Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-06-01T04:27:21.788Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-06-01T04:27:21.789Z]   スキップ: ページ取得失敗
+[2026-06-01T04:27:21.791Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-06-01T04:27:30.024Z]   0 件のイベント候補を検出
+[2026-06-01T04:27:30.026Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-06-01T04:28:00.056Z]   ページ取得エラー (https://japsa.or.jp/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://japsa.or.jp/", waiting until "networkidle"
+
+[2026-06-01T04:28:00.057Z]   スキップ: ページ取得失敗
+[2026-06-01T04:28:00.059Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-06-01T04:28:30.085Z]   ページ取得エラー (https://www.kenkyuukai.jp/biyo/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.kenkyuukai.jp/biyo/", waiting until "networkidle"
+
+[2026-06-01T04:28:30.085Z]   スキップ: ページ取得失敗
+[2026-06-01T04:28:30.088Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-06-01T04:28:35.332Z]   3 件のイベント候補を検出
+[2026-06-01T04:28:35.332Z]   重複スキップ: ISAPS 2026 (Symposium ‘Endoscopic Facelift‘ at The Aesthetic M...)
+[2026-06-01T04:28:35.332Z]   重複スキップ: ISAPS 2026 (Congress of Plastic Surgery (FILACP) in Panama Cit...)
+[2026-06-01T04:28:35.333Z]   重複スキップ: ISAPS 2026 (Congress (Rome, Italy)
+Date
+May 07 2026...)
+[2026-06-01T04:28:35.343Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-06-01T04:29:05.373Z]   ページ取得エラー (https://www.imcas.com/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.imcas.com/", waiting until "networkidle"
+
+[2026-06-01T04:29:05.373Z]   スキップ: ページ取得失敗
+[2026-06-01T04:29:05.376Z] クロール中: UIME (https://www.uime.org/)
+[2026-06-01T04:29:18.432Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-06-01T04:29:18.433Z]   スキップ: ページ取得失敗
+[2026-06-01T04:29:18.435Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-06-01T04:29:22.519Z]   0 件のイベント候補を検出
+[2026-06-01T04:29:22.529Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-06-01T04:29:27.639Z]   0 件のイベント候補を検出
+[2026-06-01T04:29:27.647Z] クロール中: AAD (https://www.aad.org/)
+[2026-06-01T04:29:57.675Z]   ページ取得エラー (https://www.aad.org/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.aad.org/", waiting until "networkidle"
+
+[2026-06-01T04:29:57.676Z]   スキップ: ページ取得失敗
+[2026-06-01T04:29:57.678Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-06-01T04:30:27.702Z]   ページ取得エラー (http://www.osaps.org/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "http://www.osaps.org/", waiting until "networkidle"
+
+[2026-06-01T04:30:27.703Z]   スキップ: ページ取得失敗
+[2026-06-01T04:30:27.704Z] クロール中: ESAPS (https://esaps.org/)
+[2026-06-01T04:30:28.077Z]   ページ取得エラー (https://esaps.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://esaps.org/
+Call log:
+  - navigating to "https://esaps.org/", waiting until "networkidle"
+
+[2026-06-01T04:30:28.078Z]   スキップ: ページ取得失敗
+[2026-06-01T04:30:28.080Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-06-01T04:30:32.547Z]   0 件のイベント候補を検出
+[2026-06-01T04:30:32.558Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-06-01T04:31:02.585Z]   ページ取得エラー (https://www.aslms.org/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.aslms.org/", waiting until "networkidle"
+
+[2026-06-01T04:31:02.585Z]   スキップ: ページ取得失敗
+[2026-06-01T04:31:02.587Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-06-01T04:31:02.708Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-06-01T04:31:02.708Z]   スキップ: ページ取得失敗
+[2026-06-01T04:31:02.710Z] クロール中: A4M (https://www.a4m.com/)
+[2026-06-01T04:31:32.735Z]   ページ取得エラー (https://www.a4m.com/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.a4m.com/", waiting until "networkidle"
+
+[2026-06-01T04:31:32.735Z]   スキップ: ページ取得失敗
+[2026-06-01T04:31:32.799Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-06-01T04:31:32.800Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-06-01T04:31:32.800Z]   公式イベント合計: 36 件
+[2026-06-01T04:31:32.800Z]   承認待ち: 0 件
+[2026-06-01T04:31:32.800Z]   承認済み: 0 件
+[2026-06-01T04:31:32.800Z] 
