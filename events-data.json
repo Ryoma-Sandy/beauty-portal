@@ -295,6 +295,20 @@
             "id": 1526
         },
         {
+            "title": "ISAPS 2026 (Conference of Plastic Surgery Innovations\nDate\nSep...)",
+            "date": "2026年 (詳細は公式サイトで確認)",
+            "sortDate": "2026-01-01",
+            "category": "美容外科",
+            "type": "海外学会",
+            "region": "海外",
+            "location": "",
+            "organizer": "ISAPS",
+            "description": "海外学会のイベント候補です。正確な開催日程・場所は公式サイトをご確認ください。",
+            "url": "https://www.isaps.org/",
+            "source": "auto",
+            "id": 1626
+        },
+        {
             "id": 1,
             "title": "第155回 日本美容外科学会（JSAPS）学術集会",
             "date": "2026年1月17日",
@@ -577,5 +591,5 @@
     ],
     "pending": [],
     "approved": [],
-    "lastCrawled": "2026-07-08T03:16:37.046Z"
+    "lastCrawled": "2026-07-09T03:40:13.880Z"
 }
