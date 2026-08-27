@@ -14792,3 +14792,89 @@ April 8-10, 2027...)
 [2026-08-26T01:36:40.070Z]   承認待ち: 0 件
 [2026-08-26T01:36:40.070Z]   承認済み: 0 件
 [2026-08-26T01:36:40.070Z] 
+[2026-08-27T08:20:29.613Z] === クロール開始 (Playwright) ===
+[2026-08-27T08:20:29.613Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-08-27T08:20:29.843Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-08-27T08:20:34.572Z]   0 件のイベント候補を検出
+[2026-08-27T08:20:34.579Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-08-27T08:20:42.277Z]   0 件のイベント候補を検出
+[2026-08-27T08:20:42.284Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-08-27T08:20:46.114Z]   0 件のイベント候補を検出
+[2026-08-27T08:20:46.116Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-08-27T08:20:46.291Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-08-27T08:20:46.291Z]   スキップ: ページ取得失敗
+[2026-08-27T08:20:46.294Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-08-27T08:20:52.408Z]   0 件のイベント候補を検出
+[2026-08-27T08:20:52.411Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-08-27T08:20:55.511Z]   0 件のイベント候補を検出
+[2026-08-27T08:20:55.512Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-08-27T08:20:55.888Z]   ページ取得エラー (https://www.kenkyuukai.jp/biyo/): page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.kenkyuukai.jp/biyo/
+Call log:
+  - navigating to "https://www.kenkyuukai.jp/biyo/", waiting until "networkidle"
+
+[2026-08-27T08:20:55.888Z]   スキップ: ページ取得失敗
+[2026-08-27T08:20:55.890Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-08-27T08:21:00.654Z]   3 件のイベント候補を検出
+[2026-08-27T08:21:00.655Z]   重複スキップ: ISAPS 2026 (Congress 2026...)
+[2026-08-27T08:21:00.655Z]   重複スキップ: ISAPS 2026 (Symposium
+Date
+Sep 03 - Sep 05 2026...)
+[2026-08-27T08:21:00.655Z]   重複スキップ: ISAPS 2026 (Conference of Plastic Surgery Innovations
+Date
+Sep...)
+[2026-08-27T08:21:00.664Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-08-27T08:21:21.863Z]   1 件のイベント候補を検出
+[2026-08-27T08:21:21.863Z]   重複スキップ: IMCAS 2026 (congresses
+
++0
+
+Countries represented
+
++0%
+
+Plan t...)
+[2026-08-27T08:21:21.869Z] クロール中: UIME (https://www.uime.org/)
+[2026-08-27T08:21:32.981Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-08-27T08:21:32.981Z]   スキップ: ページ取得失敗
+[2026-08-27T08:21:32.983Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-08-27T08:21:37.168Z]   0 件のイベント候補を検出
+[2026-08-27T08:21:37.176Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-08-27T08:21:40.423Z]   0 件のイベント候補を検出
+[2026-08-27T08:21:40.430Z] クロール中: AAD (https://www.aad.org/)
+[2026-08-27T08:21:43.767Z]   0 件のイベント候補を検出
+[2026-08-27T08:21:43.772Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-08-27T08:21:46.635Z]   0 件のイベント候補を検出
+[2026-08-27T08:21:46.637Z] クロール中: ESAPS (https://esaps.org/)
+[2026-08-27T08:21:53.684Z]   0 件のイベント候補を検出
+[2026-08-27T08:21:53.686Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-08-27T08:21:58.115Z]   0 件のイベント候補を検出
+[2026-08-27T08:21:58.125Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-08-27T08:22:02.326Z]   0 件のイベント候補を検出
+[2026-08-27T08:22:02.333Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-08-27T08:22:02.395Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-08-27T08:22:02.395Z]   スキップ: ページ取得失敗
+[2026-08-27T08:22:02.397Z] クロール中: A4M (https://www.a4m.com/)
+[2026-08-27T08:22:08.857Z]   2 件のイベント候補を検出
+[2026-08-27T08:22:08.857Z]   重複スキップ: A4M 2026 (Summit
+IV Therapy Symposium
+IV Peptide Therapy Mas...)
+[2026-08-27T08:22:08.858Z]   重複スキップ: A4M 2027 (Symposium
+
+West Palm Beach, FL
+
+April 8-10, 2027...)
+[2026-08-27T08:22:08.942Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-08-27T08:22:08.942Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-08-27T08:22:08.942Z]   公式イベント合計: 43 件
+[2026-08-27T08:22:08.942Z]   承認待ち: 0 件
+[2026-08-27T08:22:08.942Z]   承認済み: 0 件
+[2026-08-27T08:22:08.942Z] 
