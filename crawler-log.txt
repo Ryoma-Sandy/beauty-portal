@@ -15389,3 +15389,88 @@ April 8-10, 2027...)
 [2026-09-02T03:41:59.479Z]   承認待ち: 0 件
 [2026-09-02T03:41:59.479Z]   承認済み: 0 件
 [2026-09-02T03:41:59.479Z] 
+[2026-09-03T03:39:41.469Z] === クロール開始 (Playwright) ===
+[2026-09-03T03:39:41.470Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-09-03T03:39:44.067Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-09-03T03:39:49.761Z]   0 件のイベント候補を検出
+[2026-09-03T03:39:49.768Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-09-03T03:40:03.762Z]   0 件のイベント候補を検出
+[2026-09-03T03:40:03.771Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-09-03T03:40:08.276Z]   0 件のイベント候補を検出
+[2026-09-03T03:40:08.278Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-09-03T03:40:08.343Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-09-03T03:40:08.344Z]   スキップ: ページ取得失敗
+[2026-09-03T03:40:08.346Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-09-03T03:40:16.113Z]   0 件のイベント候補を検出
+[2026-09-03T03:40:16.115Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-09-03T03:40:19.321Z]   0 件のイベント候補を検出
+[2026-09-03T03:40:19.323Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-09-03T03:40:19.715Z]   ページ取得エラー (https://www.kenkyuukai.jp/biyo/): page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.kenkyuukai.jp/biyo/
+Call log:
+  - navigating to "https://www.kenkyuukai.jp/biyo/", waiting until "networkidle"
+
+[2026-09-03T03:40:19.716Z]   スキップ: ページ取得失敗
+[2026-09-03T03:40:19.718Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-09-03T03:40:24.791Z]   3 件のイベント候補を検出
+[2026-09-03T03:40:24.791Z]   重複スキップ: ISAPS 2026 (Congress 2026...)
+[2026-09-03T03:40:24.791Z]   重複スキップ: ISAPS 2026 (Symposium
+Date
+Sep 03 - Sep 05 2026...)
+[2026-09-03T03:40:24.791Z]   重複スキップ: ISAPS 2026 (Conference of Plastic Surgery Innovations
+Date
+Sep...)
+[2026-09-03T03:40:24.801Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-09-03T03:40:54.888Z]   ページ取得エラー (https://www.imcas.com/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.imcas.com/", waiting until "networkidle"
+
+[2026-09-03T03:40:54.888Z]   スキップ: ページ取得失敗
+[2026-09-03T03:40:54.890Z] クロール中: UIME (https://www.uime.org/)
+[2026-09-03T03:41:06.835Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-09-03T03:41:06.836Z]   スキップ: ページ取得失敗
+[2026-09-03T03:41:06.837Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-09-03T03:41:10.593Z]   0 件のイベント候補を検出
+[2026-09-03T03:41:10.603Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-09-03T03:41:15.062Z]   0 件のイベント候補を検出
+[2026-09-03T03:41:15.070Z] クロール中: AAD (https://www.aad.org/)
+[2026-09-03T03:41:18.423Z]   0 件のイベント候補を検出
+[2026-09-03T03:41:18.428Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-09-03T03:41:21.177Z]   0 件のイベント候補を検出
+[2026-09-03T03:41:21.179Z] クロール中: ESAPS (https://esaps.org/)
+[2026-09-03T03:41:28.860Z]   0 件のイベント候補を検出
+[2026-09-03T03:41:28.862Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-09-03T03:41:58.894Z]   ページ取得エラー (https://ishrs.org/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://ishrs.org/", waiting until "networkidle"
+
+[2026-09-03T03:41:58.894Z]   スキップ: ページ取得失敗
+[2026-09-03T03:41:58.897Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-09-03T03:42:02.432Z]   0 件のイベント候補を検出
+[2026-09-03T03:42:02.446Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-09-03T03:42:02.531Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-09-03T03:42:02.531Z]   スキップ: ページ取得失敗
+[2026-09-03T03:42:02.533Z] クロール中: A4M (https://www.a4m.com/)
+[2026-09-03T03:42:29.690Z]   2 件のイベント候補を検出
+[2026-09-03T03:42:29.690Z]   重複スキップ: A4M 2026 (Summit
+IV Therapy Symposium
+IV Peptide Therapy Mas...)
+[2026-09-03T03:42:29.690Z]   重複スキップ: A4M 2027 (Symposium
+
+West Palm Beach, FL
+
+April 8-10, 2027...)
+[2026-09-03T03:42:29.783Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-09-03T03:42:29.784Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-09-03T03:42:29.784Z]   公式イベント合計: 43 件
+[2026-09-03T03:42:29.784Z]   承認待ち: 0 件
+[2026-09-03T03:42:29.784Z]   承認済み: 0 件
+[2026-09-03T03:42:29.784Z] 
