@@ -17095,3 +17095,82 @@ Call log:
 [2026-09-22T04:04:49.951Z]   承認待ち: 0 件
 [2026-09-22T04:04:49.951Z]   承認済み: 0 件
 [2026-09-22T04:04:49.951Z] 
+[2026-09-23T03:59:43.236Z] === クロール開始 (Playwright) ===
+[2026-09-23T03:59:43.237Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-09-23T03:59:43.490Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-09-23T03:59:48.309Z]   0 件のイベント候補を検出
+[2026-09-23T03:59:48.318Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-09-23T03:59:57.398Z]   0 件のイベント候補を検出
+[2026-09-23T03:59:57.408Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-09-23T04:00:01.440Z]   0 件のイベント候補を検出
+[2026-09-23T04:00:01.442Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-09-23T04:00:01.702Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-09-23T04:00:01.702Z]   スキップ: ページ取得失敗
+[2026-09-23T04:00:01.704Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-09-23T04:00:07.635Z]   0 件のイベント候補を検出
+[2026-09-23T04:00:07.640Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-09-23T04:00:10.623Z]   0 件のイベント候補を検出
+[2026-09-23T04:00:10.625Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-09-23T04:00:10.983Z]   ページ取得エラー (https://www.kenkyuukai.jp/biyo/): page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.kenkyuukai.jp/biyo/
+Call log:
+  - navigating to "https://www.kenkyuukai.jp/biyo/", waiting until "networkidle"
+
+[2026-09-23T04:00:10.984Z]   スキップ: ページ取得失敗
+[2026-09-23T04:00:10.987Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-09-23T04:00:16.230Z]   2 件のイベント候補を検出
+[2026-09-23T04:00:16.230Z]   重複スキップ: ISAPS 2026 (Congress 2026...)
+[2026-09-23T04:00:16.230Z]   重複スキップ: ISAPS 2026 (Congress on Plastic and Reconstructive Surgery
+Dat...)
+[2026-09-23T04:00:16.244Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-09-23T04:00:36.920Z]   1 件のイベント候補を検出
+[2026-09-23T04:00:36.921Z]   重複スキップ: IMCAS 2026 (congresses
+
++0
+
+Countries represented
+
++0%
+
+Plan t...)
+[2026-09-23T04:00:36.926Z] クロール中: UIME (https://www.uime.org/)
+[2026-09-23T04:00:46.389Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-09-23T04:00:46.389Z]   スキップ: ページ取得失敗
+[2026-09-23T04:00:46.392Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-09-23T04:00:51.401Z]   0 件のイベント候補を検出
+[2026-09-23T04:00:51.411Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-09-23T04:00:54.699Z]   0 件のイベント候補を検出
+[2026-09-23T04:00:54.709Z] クロール中: AAD (https://www.aad.org/)
+[2026-09-23T04:00:58.741Z]   0 件のイベント候補を検出
+[2026-09-23T04:00:58.747Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-09-23T04:01:01.693Z]   0 件のイベント候補を検出
+[2026-09-23T04:01:01.694Z] クロール中: ESAPS (https://esaps.org/)
+[2026-09-23T04:01:09.353Z]   0 件のイベント候補を検出
+[2026-09-23T04:01:09.354Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-09-23T04:01:13.500Z]   0 件のイベント候補を検出
+[2026-09-23T04:01:13.512Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-09-23T04:01:17.467Z]   0 件のイベント候補を検出
+[2026-09-23T04:01:17.477Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-09-23T04:01:17.567Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-09-23T04:01:17.567Z]   スキップ: ページ取得失敗
+[2026-09-23T04:01:17.568Z] クロール中: A4M (https://www.a4m.com/)
+[2026-09-23T04:01:23.587Z]   2 件のイベント候補を検出
+[2026-09-23T04:01:23.588Z]   重複スキップ: A4M 2026 (Summit
+IV Therapy Symposium
+IV Peptide Therapy Mas...)
+[2026-09-23T04:01:23.588Z]   重複スキップ: A4M 2027 (Symposium
+Module IV: Gastro-Nutritional Strategies...)
+[2026-09-23T04:01:23.689Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-09-23T04:01:23.690Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-09-23T04:01:23.690Z]   公式イベント合計: 47 件
+[2026-09-23T04:01:23.690Z]   承認待ち: 0 件
+[2026-09-23T04:01:23.690Z]   承認済み: 0 件
+[2026-09-23T04:01:23.690Z] 
