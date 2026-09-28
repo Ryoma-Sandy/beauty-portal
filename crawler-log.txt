@@ -17470,3 +17470,77 @@ Call log:
 [2026-09-27T04:30:47.662Z]   承認待ち: 0 件
 [2026-09-27T04:30:47.662Z]   承認済み: 0 件
 [2026-09-27T04:30:47.662Z] 
+[2026-09-28T04:30:14.590Z] === クロール開始 (Playwright) ===
+[2026-09-28T04:30:14.591Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-09-28T04:30:14.848Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-09-28T04:30:20.740Z]   0 件のイベント候補を検出
+[2026-09-28T04:30:20.748Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-09-28T04:30:27.299Z]   0 件のイベント候補を検出
+[2026-09-28T04:30:27.309Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-09-28T04:30:31.752Z]   0 件のイベント候補を検出
+[2026-09-28T04:30:31.755Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-09-28T04:30:31.871Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-09-28T04:30:31.871Z]   スキップ: ページ取得失敗
+[2026-09-28T04:30:31.874Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-09-28T04:30:39.542Z]   0 件のイベント候補を検出
+[2026-09-28T04:30:39.548Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-09-28T04:30:43.052Z]   0 件のイベント候補を検出
+[2026-09-28T04:30:43.054Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-09-28T04:30:46.397Z]   0 件のイベント候補を検出
+[2026-09-28T04:30:46.398Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-09-28T04:30:51.562Z]   2 件のイベント候補を検出
+[2026-09-28T04:30:51.562Z]   重複スキップ: ISAPS 2026 (Congress 2026...)
+[2026-09-28T04:30:51.563Z]   重複スキップ: ISAPS 2026 (Congress on Plastic and Reconstructive Surgery
+Dat...)
+[2026-09-28T04:30:51.574Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-09-28T04:31:11.434Z]   1 件のイベント候補を検出
+[2026-09-28T04:31:11.434Z]   重複スキップ: IMCAS 2026 (congresses
+
++0
+
+Countries represented
+
++0%
+
+Plan t...)
+[2026-09-28T04:31:11.439Z] クロール中: UIME (https://www.uime.org/)
+[2026-09-28T04:31:26.937Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-09-28T04:31:26.937Z]   スキップ: ページ取得失敗
+[2026-09-28T04:31:26.941Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-09-28T04:31:30.923Z]   0 件のイベント候補を検出
+[2026-09-28T04:31:30.933Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-09-28T04:31:34.614Z]   0 件のイベント候補を検出
+[2026-09-28T04:31:34.622Z] クロール中: AAD (https://www.aad.org/)
+[2026-09-28T04:31:37.927Z]   0 件のイベント候補を検出
+[2026-09-28T04:31:37.933Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-09-28T04:31:40.898Z]   0 件のイベント候補を検出
+[2026-09-28T04:31:40.900Z] クロール中: ESAPS (https://esaps.org/)
+[2026-09-28T04:31:47.877Z]   0 件のイベント候補を検出
+[2026-09-28T04:31:47.879Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-09-28T04:31:52.235Z]   0 件のイベント候補を検出
+[2026-09-28T04:31:52.247Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-09-28T04:31:55.824Z]   0 件のイベント候補を検出
+[2026-09-28T04:31:55.833Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-09-28T04:31:55.886Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-09-28T04:31:55.886Z]   スキップ: ページ取得失敗
+[2026-09-28T04:31:55.888Z] クロール中: A4M (https://www.a4m.com/)
+[2026-09-28T04:32:25.923Z]   ページ取得エラー (https://www.a4m.com/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.a4m.com/", waiting until "networkidle"
+
+[2026-09-28T04:32:25.923Z]   スキップ: ページ取得失敗
+[2026-09-28T04:32:26.008Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-09-28T04:32:26.008Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-09-28T04:32:26.008Z]   公式イベント合計: 47 件
+[2026-09-28T04:32:26.008Z]   承認待ち: 0 件
+[2026-09-28T04:32:26.008Z]   承認済み: 0 件
+[2026-09-28T04:32:26.008Z] 
