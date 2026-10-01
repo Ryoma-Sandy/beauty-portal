@@ -671,9 +671,23 @@
             "url": "https://www.a4m.com/",
             "source": "auto",
             "id": 2126
+        },
+        {
+            "title": "IMCAS 2027 (congresses\n\n+0\n\nCountries represented\n\n+0%\n\nPlan t...)",
+            "date": "2027年 (詳細は公式サイトで確認)",
+            "sortDate": "2027-01-01",
+            "category": "総合",
+            "type": "海外学会",
+            "region": "海外",
+            "location": "",
+            "organizer": "IMCAS",
+            "description": "海外学会のイベント候補です。正確な開催日程・場所は公式サイトをご確認ください。",
+            "url": "https://www.imcas.com/",
+            "source": "auto",
+            "id": 2326
         }
     ],
     "pending": [],
     "approved": [],
-    "lastCrawled": "2026-09-30T04:48:03.627Z"
+    "lastCrawled": "2026-10-01T05:00:03.959Z"
 }
