@@ -19924,3 +19924,84 @@ Call log:
 [2026-10-29T05:01:01.621Z]   承認待ち: 0 件
 [2026-10-29T05:01:01.621Z]   承認済み: 0 件
 [2026-10-29T05:01:01.621Z] 
+[2026-10-30T04:58:38.040Z] === クロール開始 (Playwright) ===
+[2026-10-30T04:58:38.041Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-10-30T04:58:38.226Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-10-30T04:58:42.956Z]   0 件のイベント候補を検出
+[2026-10-30T04:58:42.962Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-10-30T04:58:57.194Z]   0 件のイベント候補を検出
+[2026-10-30T04:58:57.201Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-10-30T04:59:01.164Z]   0 件のイベント候補を検出
+[2026-10-30T04:59:01.165Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-10-30T04:59:01.251Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-10-30T04:59:01.252Z]   スキップ: ページ取得失敗
+[2026-10-30T04:59:01.253Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-10-30T04:59:09.881Z]   0 件のイベント候補を検出
+[2026-10-30T04:59:09.885Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-10-30T04:59:12.944Z]   0 件のイベント候補を検出
+[2026-10-30T04:59:12.945Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-10-30T04:59:16.034Z]   0 件のイベント候補を検出
+[2026-10-30T04:59:16.035Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-10-30T04:59:21.014Z]   3 件のイベント候補を検出
+[2026-10-30T04:59:21.015Z]   重複スキップ: ISAPS 2026 (Congress 2026...)
+[2026-10-30T04:59:21.015Z]   重複スキップ: ISAPS 2026 (Congress on Plastic and Reconstructive Surgery
+Dat...)
+[2026-10-30T04:59:21.015Z]   重複スキップ: ISAPS 2026 (Conference of VSAPS
+Date
+Dec 11 - Dec 13 2026...)
+[2026-10-30T04:59:21.022Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-10-30T04:59:41.282Z]   1 件のイベント候補を検出
+[2026-10-30T04:59:41.282Z]   重複スキップ: IMCAS 2027 (congresses
+
++0
+
+Countries represented
+
++0%
+
+Plan t...)
+[2026-10-30T04:59:41.286Z] クロール中: UIME (https://www.uime.org/)
+[2026-10-30T04:59:52.876Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-10-30T04:59:52.876Z]   スキップ: ページ取得失敗
+[2026-10-30T04:59:52.878Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-10-30T04:59:57.164Z]   0 件のイベント候補を検出
+[2026-10-30T04:59:57.170Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-10-30T05:00:00.331Z]   0 件のイベント候補を検出
+[2026-10-30T05:00:00.338Z] クロール中: AAD (https://www.aad.org/)
+[2026-10-30T05:00:03.840Z]   0 件のイベント候補を検出
+[2026-10-30T05:00:03.845Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-10-30T05:00:06.711Z]   0 件のイベント候補を検出
+[2026-10-30T05:00:06.712Z] クロール中: ESAPS (https://esaps.org/)
+[2026-10-30T05:00:13.975Z]   0 件のイベント候補を検出
+[2026-10-30T05:00:13.976Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-10-30T05:00:44.001Z]   ページ取得エラー (https://ishrs.org/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://ishrs.org/", waiting until "networkidle"
+
+[2026-10-30T05:00:44.001Z]   スキップ: ページ取得失敗
+[2026-10-30T05:00:44.002Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-10-30T05:00:48.364Z]   0 件のイベント候補を検出
+[2026-10-30T05:00:48.370Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-10-30T05:00:48.487Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-10-30T05:00:48.487Z]   スキップ: ページ取得失敗
+[2026-10-30T05:00:48.489Z] クロール中: A4M (https://www.a4m.com/)
+[2026-10-30T05:01:18.511Z]   ページ取得エラー (https://www.a4m.com/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.a4m.com/", waiting until "networkidle"
+
+[2026-10-30T05:01:18.511Z]   スキップ: ページ取得失敗
+[2026-10-30T05:01:18.573Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-10-30T05:01:18.573Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-10-30T05:01:18.573Z]   公式イベント合計: 50 件
+[2026-10-30T05:01:18.573Z]   承認待ち: 0 件
+[2026-10-30T05:01:18.573Z]   承認済み: 0 件
+[2026-10-30T05:01:18.573Z] 
