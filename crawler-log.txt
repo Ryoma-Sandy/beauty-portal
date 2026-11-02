@@ -20171,3 +20171,82 @@ Call log:
 [2026-11-01T05:10:06.901Z]   承認待ち: 0 件
 [2026-11-01T05:10:06.901Z]   承認済み: 0 件
 [2026-11-01T05:10:06.901Z] 
+[2026-11-02T05:07:59.896Z] === クロール開始 (Playwright) ===
+[2026-11-02T05:07:59.897Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-11-02T05:08:00.098Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-11-02T05:08:04.870Z]   0 件のイベント候補を検出
+[2026-11-02T05:08:04.879Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-11-02T05:08:10.125Z]   0 件のイベント候補を検出
+[2026-11-02T05:08:10.132Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-11-02T05:08:14.246Z]   0 件のイベント候補を検出
+[2026-11-02T05:08:14.248Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-11-02T05:08:14.385Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-11-02T05:08:14.385Z]   スキップ: ページ取得失敗
+[2026-11-02T05:08:14.388Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-11-02T05:08:22.756Z]   0 件のイベント候補を検出
+[2026-11-02T05:08:22.761Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-11-02T05:08:25.876Z]   0 件のイベント候補を検出
+[2026-11-02T05:08:25.877Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-11-02T05:08:55.900Z]   ページ取得エラー (https://www.kenkyuukai.jp/biyo/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.kenkyuukai.jp/biyo/", waiting until "networkidle"
+
+[2026-11-02T05:08:55.900Z]   スキップ: ページ取得失敗
+[2026-11-02T05:08:55.902Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-11-02T05:09:25.925Z]   ページ取得エラー (https://www.isaps.org/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.isaps.org/", waiting until "networkidle"
+
+[2026-11-02T05:09:25.925Z]   スキップ: ページ取得失敗
+[2026-11-02T05:09:25.934Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-11-02T05:09:46.097Z]   1 件のイベント候補を検出
+[2026-11-02T05:09:46.097Z]   重複スキップ: IMCAS 2027 (congresses
+
++0
+
+Countries represented
+
++0%
+
+Plan t...)
+[2026-11-02T05:09:46.102Z] クロール中: UIME (https://www.uime.org/)
+[2026-11-02T05:10:00.199Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-11-02T05:10:00.199Z]   スキップ: ページ取得失敗
+[2026-11-02T05:10:00.201Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-11-02T05:10:04.493Z]   0 件のイベント候補を検出
+[2026-11-02T05:10:04.501Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-11-02T05:10:08.189Z]   0 件のイベント候補を検出
+[2026-11-02T05:10:08.196Z] クロール中: AAD (https://www.aad.org/)
+[2026-11-02T05:10:11.487Z]   0 件のイベント候補を検出
+[2026-11-02T05:10:11.491Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-11-02T05:10:14.343Z]   0 件のイベント候補を検出
+[2026-11-02T05:10:14.345Z] クロール中: ESAPS (https://esaps.org/)
+[2026-11-02T05:10:22.890Z]   0 件のイベント候補を検出
+[2026-11-02T05:10:22.891Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-11-02T05:10:27.157Z]   0 件のイベント候補を検出
+[2026-11-02T05:10:27.167Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-11-02T05:10:30.900Z]   0 件のイベント候補を検出
+[2026-11-02T05:10:30.910Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-11-02T05:10:30.997Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-11-02T05:10:30.997Z]   スキップ: ページ取得失敗
+[2026-11-02T05:10:31.001Z] クロール中: A4M (https://www.a4m.com/)
+[2026-11-02T05:11:01.022Z]   ページ取得エラー (https://www.a4m.com/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.a4m.com/", waiting until "networkidle"
+
+[2026-11-02T05:11:01.022Z]   スキップ: ページ取得失敗
+[2026-11-02T05:11:01.092Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-11-02T05:11:01.093Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-11-02T05:11:01.093Z]   公式イベント合計: 50 件
+[2026-11-02T05:11:01.093Z]   承認待ち: 0 件
+[2026-11-02T05:11:01.093Z]   承認済み: 0 件
+[2026-11-02T05:11:01.093Z] 
