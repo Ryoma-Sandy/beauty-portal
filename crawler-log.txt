@@ -20327,3 +20327,82 @@ Call log:
 [2026-11-03T05:56:01.169Z]   承認待ち: 0 件
 [2026-11-03T05:56:01.169Z]   承認済み: 0 件
 [2026-11-03T05:56:01.169Z] 
+[2026-11-04T05:29:59.098Z] === クロール開始 (Playwright) ===
+[2026-11-04T05:29:59.099Z] 設定: 国内KW=6件, 海外KW=7件, 勉強会KW=7件
+[2026-11-04T05:29:59.383Z] クロール中: JSAPS（日本美容外科学会） (https://www.jsaps.com/)
+[2026-11-04T05:30:05.169Z]   0 件のイベント候補を検出
+[2026-11-04T05:30:05.179Z] クロール中: JSAS（日本美容外科学会） (https://www.jsas.or.jp/)
+[2026-11-04T05:30:10.539Z]   0 件のイベント候補を検出
+[2026-11-04T05:30:10.549Z] クロール中: 日本美容皮膚科学会 (https://www.aesthet-derm.org/)
+[2026-11-04T05:30:14.717Z]   0 件のイベント候補を検出
+[2026-11-04T05:30:14.719Z] クロール中: 日本レーザー医学会 (JSLMS) (https://www.jslms.or.jp/)
+[2026-11-04T05:30:14.931Z]   ページ取得エラー (https://www.jslms.or.jp/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.jslms.or.jp/
+Call log:
+  - navigating to "https://www.jslms.or.jp/", waiting until "networkidle"
+
+[2026-11-04T05:30:14.931Z]   スキップ: ページ取得失敗
+[2026-11-04T05:30:14.934Z] クロール中: 日本抗加齢医学会 (JSAAM) (https://www.anti-aging.gr.jp/)
+[2026-11-04T05:30:24.219Z]   2 件のイベント候補を検出
+[2026-11-04T05:30:24.220Z]   重複スキップ: 第26回日本抗加齢医学会総会
+[2026-11-04T05:30:24.220Z]   重複スキップ: 第26回日本抗加齢医学会総会
+[2026-11-04T05:30:24.226Z] クロール中: 日本美容医療学会（JAPSA） (https://japsa.or.jp/)
+[2026-11-04T05:30:27.448Z]   0 件のイベント候補を検出
+[2026-11-04T05:30:27.449Z] クロール中: kenkyuukai.jp（研究会情報） (https://www.kenkyuukai.jp/biyo/)
+[2026-11-04T05:30:30.540Z]   0 件のイベント候補を検出
+[2026-11-04T05:30:30.541Z] クロール中: ISAPS (https://www.isaps.org/)
+[2026-11-04T05:30:36.201Z]   3 件のイベント候補を検出
+[2026-11-04T05:30:36.201Z]   重複スキップ: ISAPS 2026 (Congress 2026...)
+[2026-11-04T05:30:36.201Z]   重複スキップ: ISAPS 2026 (Congress on Plastic and Reconstructive Surgery
+Dat...)
+[2026-11-04T05:30:36.201Z]   重複スキップ: ISAPS 2026 (Conference of VSAPS
+Date
+Dec 11 - Dec 13 2026...)
+[2026-11-04T05:30:36.213Z] クロール中: IMCAS (https://www.imcas.com/)
+[2026-11-04T05:30:56.626Z]   1 件のイベント候補を検出
+[2026-11-04T05:30:56.626Z]   重複スキップ: IMCAS 2027 (congresses
+
++0
+
+Countries represented
+
++0%
+
+Plan t...)
+[2026-11-04T05:30:56.631Z] クロール中: UIME (https://www.uime.org/)
+[2026-11-04T05:31:11.014Z]   ページ取得エラー (https://www.uime.org/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.uime.org/
+Call log:
+  - navigating to "https://www.uime.org/", waiting until "networkidle"
+
+[2026-11-04T05:31:11.014Z]   スキップ: ページ取得失敗
+[2026-11-04T05:31:11.017Z] クロール中: ASPS (https://www.plasticsurgery.org/)
+[2026-11-04T05:31:16.299Z]   0 件のイベント候補を検出
+[2026-11-04T05:31:16.309Z] クロール中: The Aesthetic Society (https://www.theaestheticsociety.org/)
+[2026-11-04T05:31:20.071Z]   0 件のイベント候補を検出
+[2026-11-04T05:31:20.080Z] クロール中: AAD (https://www.aad.org/)
+[2026-11-04T05:31:24.040Z]   0 件のイベント候補を検出
+[2026-11-04T05:31:24.045Z] クロール中: OSAPS (http://www.osaps.org/)
+[2026-11-04T05:31:27.101Z]   0 件のイベント候補を検出
+[2026-11-04T05:31:27.104Z] クロール中: ESAPS (https://esaps.org/)
+[2026-11-04T05:31:33.690Z]   0 件のイベント候補を検出
+[2026-11-04T05:31:33.691Z] クロール中: ISHRS (https://ishrs.org/)
+[2026-11-04T05:31:38.143Z]   0 件のイベント候補を検出
+[2026-11-04T05:31:38.156Z] クロール中: ASLMS (https://www.aslms.org/)
+[2026-11-04T05:31:42.196Z]   0 件のイベント候補を検出
+[2026-11-04T05:31:42.205Z] クロール中: WOSAAM (https://wosaam.net/)
+[2026-11-04T05:31:42.303Z]   ページ取得エラー (https://wosaam.net/): page.goto: net::ERR_NAME_NOT_RESOLVED at https://wosaam.net/
+Call log:
+  - navigating to "https://wosaam.net/", waiting until "networkidle"
+
+[2026-11-04T05:31:42.303Z]   スキップ: ページ取得失敗
+[2026-11-04T05:31:42.306Z] クロール中: A4M (https://www.a4m.com/)
+[2026-11-04T05:32:12.338Z]   ページ取得エラー (https://www.a4m.com/): page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.a4m.com/", waiting until "networkidle"
+
+[2026-11-04T05:32:12.338Z]   スキップ: ページ取得失敗
+[2026-11-04T05:32:12.416Z] データファイルを更新しました: /home/runner/work/beauty-portal/beauty-portal/events-data.json
+[2026-11-04T05:32:12.416Z] === クロール完了: 0 件の新規イベントを追加 ===
+[2026-11-04T05:32:12.416Z]   公式イベント合計: 50 件
+[2026-11-04T05:32:12.416Z]   承認待ち: 0 件
+[2026-11-04T05:32:12.416Z]   承認済み: 0 件
+[2026-11-04T05:32:12.416Z] 
